@@ -7,7 +7,8 @@ class Card(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     order = db.Column(db.Integer, nullable=False)
-    description = db.Column(db.String(255), nullable=False)
+    title = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     list_id = db.Column(db.Integer, db.ForeignKey('lists.id'), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
