@@ -4,5 +4,5 @@ from wtforms import StringField
 from wtforms.validators import DataRequired
 
 
-class BoardForm(FlaskForm):
+class CardForm(FlaskForm):
     description = StringField('description', validators=[DataRequired()])
