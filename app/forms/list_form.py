@@ -5,4 +5,4 @@ from wtforms.validators import DataRequired
 
 
 class BoardForm(FlaskForm):
-    title = StringField('title')
+    title = StringField('title', validators=[DataRequired()])
