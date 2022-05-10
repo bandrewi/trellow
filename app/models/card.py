@@ -7,9 +7,9 @@ class Card(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     order = db.Column(db.Integer, nullable=False)
-    title = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id', nullable=False))
-    list_id = db.Column(db.Integer, db.ForeignKey('lists.id', nullable=False))
+    description = db.Column(db.String(255), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    list_id = db.Column(db.Integer, db.ForeignKey('lists.id'), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
@@ -21,7 +21,7 @@ class Card(db.Model):
         return {
             'id': self.id,
             'order': self.order,
-            'title': self.title,
+            'description': self.description,
             'user_id': self.user_id,
             'list_id': self.list_id
             # 'created_at': self.created_at
