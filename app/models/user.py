@@ -28,10 +28,16 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    boards = db.relationship("Board", back_populates='users')
+    lists = db.relationship("List", back_populates='users')
+    cards = db.relationship("Card", back_populates='users')
+
     def to_dict(self):
         return {
             'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'email': self.email
+            'email': self.email,
+            # 'created_at': self.created_at
+            # 'updated_at': self.updated_at
         }
