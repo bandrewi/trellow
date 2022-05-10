@@ -14,7 +14,7 @@ class Board(db.Model):
 
     user = db.relationship('User', back_populates='boards')
     lists = db.relationship(
-        "List", back_populates='boards', cascade="all, delete")
+        "List", back_populates='board', cascade="all, delete")
 
     def to_dict(self):
         return {
