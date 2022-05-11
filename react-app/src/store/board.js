@@ -27,8 +27,18 @@ export const createBoard = (title) => async (dispatch) => {
         },
         body: JSON.stringify({ title })
     })
-    const data = await res.json()
-    dispatch(addBoard(data))
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(addBoard(data))
+    } else if (res.status < 500) {
+        const data = await res.json()
+        if (data.errors) {
+            return data.errors
+        }
+    } else {
+        return { errors: 'An error occurred. Please try again.' }
+    }
 }
 
 export default function boards(state = {}, action) {
