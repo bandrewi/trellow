@@ -16,7 +16,7 @@ def boards():
 
     return jsonify(boards)
 
-# POST A BOARD
+# CREATE A BOARD
 @board_routes.route('/', methods=['POST'])
 @login_required
 def new_board():
@@ -36,7 +36,7 @@ def new_board():
     if form.errors:
         return form.errors, 403
 
-# PUT A BOARD
+# UPDATE A BOARD
 @board_routes.route('/<int:id>', methods=['PUT'])
 @login_required  # method not allowed instead of unauthorized
 def edit_board(id):
@@ -75,5 +75,5 @@ def new_list(id):
 
         db.session.add(new_list)
         db.session.commit()
-        
+
         return new_list.to_dict()

@@ -11,10 +11,10 @@ list_routes = Blueprint('lists', __name__)
 def lists():
     user = User.query.get(current_user.id)
     lists = {'lists': [list.to_dict() for list in user.lists]}
-    
+
     return jsonify(lists)
 
-
+# UPDATE A LIST
 @list_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def new_list(id):
@@ -23,9 +23,9 @@ def new_list(id):
     list.title = request.json['title']
     list.order = request.json['order']
 
-
     db.session.commit()
-    return new_list.to_dict()
+
+    return list.to_dict()
 
 # DELETE A LIST
 @list_routes.route('/<int:id>', methods=['DELETE'])
