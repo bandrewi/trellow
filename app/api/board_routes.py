@@ -36,18 +36,21 @@ def new_board():
         return new_board.to_dict()
 
     if form.errors:
-        return form.errors, 403
+        return form.errors, 400
 
 # UPDATE A BOARD
 @board_routes.route('/<int:id>', methods=['PUT'])
 @login_required  # method not allowed instead of unauthorized
 def edit_board(id):
     board = Board.query.get(id)
-    board.title = request.json['title']
+    title = request.json['title']
 
-    db.session.commit()
-
-    return board.to_dict()
+    if (title != ''):
+        board.title = title
+        db.session.commit()
+        return board.to_dict()
+    else:
+        return {"title": "Please provide a title"}, 400
 
 # DELETE A BOARD
 @board_routes.route('/<int:id>', methods=['DELETE'])

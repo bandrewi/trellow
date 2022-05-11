@@ -37,19 +37,42 @@ def new_card():
 
         return new_card.to_dict()
 
+    if form.errors:
+        return form.errors, 400
+
 # UPDATE A CARD
 @card_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_card(id):
     card = Card.query.get(id)
+    title = request.json['title']
 
-    card.order = request.json['order']
-    card.title = request.json['title']
-    card.description = request.json['description']
+    description = ''
+    if ('description' in request.json):
+        description = request.json['description']
 
-    db.session.commit()
+    if (title != ''):
+        card.order = request.json['order']
+        card.title = title
+        card.description = description
 
-    return card.to_dict()
+        db.session.commit()
+
+        return card.to_dict()
+    else:
+        return {"title": "Please provide a title"}, 400
+# @card_routes.route('/<int:id>', methods=['PUT'])
+# @login_required
+# def update_card(id):
+#     card = Card.query.get(id)
+    
+#     card.order = request.json['order']
+#     card.title = request.json['title']
+#     card.description = request.json['description']
+
+#     db.session.commit()
+
+#     return card.to_dict()
 
 # DELETE A CARD
 @card_routes.route('/<int:id>', methods=['DELETE'])
