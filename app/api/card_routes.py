@@ -36,3 +36,28 @@ def new_card():
         db.session.commit()
 
         return new_card.to_dict()
+
+# UPDATE A CARD
+@card_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_card(id):
+    card = Card.query.get(id)
+
+    card.order = request.json['order']
+    card.title = request.json['title']
+    card.description = request.json['description']
+
+    db.session.commit()
+
+    return card.to_dict()
+
+# DELETE A CARD
+@card_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_card(id):
+    card = Card.query.get(id)
+
+    db.session.delete(card)
+    db.session.commit()
+
+    return {"Message": "Card deleted successfully"}
