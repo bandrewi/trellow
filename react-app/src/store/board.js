@@ -74,7 +74,7 @@ export const editBoard = ({ id, title }) => async (dispatch) => {
 }
 
 export const deleteBoard = ({ id }) => async (dispatch) => {
-    const res = await fetch(`/api/boards/${id}`, {
+    await fetch(`/api/boards/${id}`, {
         method: "DELETE"
     })
     dispatch(removeBoard(id))
