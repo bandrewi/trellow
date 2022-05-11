@@ -8,21 +8,28 @@ const loadBoards = ({ boards }) => ({
     boards
 })
 
-// const addBoard = ({board}) => ({
-//     type: ADD_BOARD,
-//     board
-// })
+const addBoard = (board) => ({
+    type: ADD_BOARD,
+    board
+})
 
 export const fetchBoards = () => async (dispatch) => {
     const res = await fetch('/api/boards/')
     const data = await res.json()
-    console.log('=============', data)
     dispatch(loadBoards(data))
 }
 
-// export const createBoard = () => async (dispatch) => {
-//     const res = await
-// }
+export const createBoard = (title) => async (dispatch) => {
+    const res = await fetch('/api/boards/', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ title })
+    })
+    const data = await res.json()
+    dispatch(addBoard(data))
+}
 
 export default function boards(state = {}, action) {
     let newState;
@@ -30,6 +37,10 @@ export default function boards(state = {}, action) {
         case LOAD_BOARDS:
             newState = {}
             action.boards.forEach(board => newState[board.id] = board)
+            return newState
+        case ADD_BOARD:
+            newState = { ...state }
+            newState[action.board.id] = action.board
             return newState
         default:
             return state;
