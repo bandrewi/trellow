@@ -36,18 +36,24 @@ def new_list():
 
         return new_list.to_dict()
 
+    if form.errors:
+        return form.errors, 400
+
+
 # UPDATE A LIST
 @list_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_list(id):
     list = List.query.get(id)
-
-    list.title = request.json['title']
-    list.order = request.json['order']
-
-    db.session.commit()
-
-    return list.to_dict()
+    title = request.json['title']
+    
+    if (title != ''):
+            list.order = request.json['order']
+            list.title = title
+            db.session.commit()
+            return list.to_dict()
+    else:
+        return {"title": "Please provide a title"}, 400
 
 # DELETE A LIST
 @list_routes.route('/<int:id>', methods=['DELETE'])
