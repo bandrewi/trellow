@@ -7,6 +7,7 @@ from app.forms import BoardForm, ListForm
 board_routes = Blueprint('boards', __name__)
 
 # GET ALL BOARDS
+#need trailing slash 
 @board_routes.route('/')
 @login_required
 def boards():
@@ -17,6 +18,7 @@ def boards():
     return jsonify(boards)
 
 # CREATE A BOARD
+#need trailing slash 
 @board_routes.route('/', methods=['POST'])
 @login_required
 def new_board():
@@ -58,22 +60,22 @@ def delete_board(id):
 
     return {"Message": "Board deleted successfully"}
 
-# POST A LIST
-@board_routes.route('/<int:id>/lists', methods=['POST'])
-@login_required
-def new_list(id):
-    form = ListForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+# # CREATE A LIST
+# @board_routes.route('/<int:id>/lists', methods=['POST'])
+# @login_required
+# def new_list(id):
+#     form = ListForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if form.validate_on_submit():
-        new_list = List(
-            order=form.order.data,
-            title=form.title.data,
-            user_id=current_user.id,
-            board_id=id
-        )
+#     if form.validate_on_submit():
+#         new_list = List(
+#             order=form.order.data,
+#             title=form.title.data,
+#             user_id=current_user.id,
+#             board_id=id
+#         )
 
-        db.session.add(new_list)
-        db.session.commit()
+#         db.session.add(new_list)
+#         db.session.commit()
 
-        return new_list.to_dict()
+#         return new_list.to_dict()

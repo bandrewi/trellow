@@ -6,18 +6,40 @@ from app.forms import ListForm
 list_routes = Blueprint('lists', __name__)
 
 # GET ALL LISTS
+#need trailing slash 
 @list_routes.route('/')
 @login_required
 def lists():
     user = User.query.get(current_user.id)
     lists = {'lists': [list.to_dict() for list in user.lists]}
 
-    return jsonify(lists)
+    return lists
+
+# CREATE A LIST
+#need trailing slash 
+@list_routes.route('/', methods=['POST'])
+@login_required
+def new_list():
+    form = ListForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_list = List(
+            order=form.order.data,
+            title=form.title.data,
+            user_id=current_user.id,
+            board_id=request.json['board_id']
+        )
+
+        db.session.add(new_list)
+        db.session.commit()
+
+        return new_list.to_dict()
 
 # UPDATE A LIST
 @list_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def new_list(id):
+def update_list(id):
     list = List.query.get(id)
 
     list.title = request.json['title']
