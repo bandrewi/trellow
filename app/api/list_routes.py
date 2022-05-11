@@ -37,7 +37,7 @@ def new_list():
         return new_list.to_dict()
 
     if form.errors:
-        return form.errors, 400
+        return {"errors": form.errors}, 400
 
 
 # UPDATE A LIST
@@ -53,7 +53,9 @@ def update_list(id):
             db.session.commit()
             return list.to_dict()
     else:
-        return {"title": "Please provide a title"}, 400
+        return {"errors":
+        {"title": "Please provide a title"}
+        }, 400
 
 # DELETE A LIST
 @list_routes.route('/<int:id>', methods=['DELETE'])
