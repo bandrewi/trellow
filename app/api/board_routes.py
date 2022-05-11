@@ -15,7 +15,7 @@ def boards():
     # query data comes back in a list of class instances
     boards = {'boards': [board.to_dict() for board in user.boards]}
 
-    return jsonify(boards)
+    return boards
 
 # CREATE A BOARD
 #need trailing slash 
@@ -27,8 +27,8 @@ def new_board():
 
     if form.validate_on_submit():
         new_board = Board(
-            title=form.title.data,
-            user_id=current_user.id
+            title = form.title.data,
+            user_id = current_user.id
         )
 
         db.session.add(new_board)

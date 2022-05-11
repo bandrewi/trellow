@@ -25,10 +25,10 @@ def new_list():
 
     if form.validate_on_submit():
         new_list = List(
-            order=form.order.data,
-            title=form.title.data,
-            user_id=current_user.id,
-            board_id=request.json['board_id']
+            order = form.order.data,
+            title = form.title.data,
+            user_id = current_user.id,
+            board_id = request.json['board_id']
         )
 
         db.session.add(new_list)
