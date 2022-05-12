@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import { fetchBoards } from './store/board';
 import { fetchLists } from './store/list';
 import { fetchCards } from './store/card';
+import SplashPage from './components/SplashPage';
+import HomePage from './components/HomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,9 +51,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          {user ? <HomePage /> : <SplashPage />}
+        </Route>
       </Switch>
     </BrowserRouter>
   );
