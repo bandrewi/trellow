@@ -19,15 +19,18 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     } else {
-      await dispatch(fetchBoards())
+      await dispatch(fetchBoards());
       await dispatch(fetchLists());
       await dispatch(fetchCards());
     }
   };
 
-  const demoLogin = (e) => {
+  const demoLogin = async (e) => {
     e.preventDefault()
-    dispatch(login('demo@aa.io', 'password'))
+    await dispatch(login('demo@aa.io', 'password'))
+    await dispatch(fetchBoards());
+    await dispatch(fetchLists());
+    await dispatch(fetchCards());
   }
 
   const updateEmail = (e) => {
