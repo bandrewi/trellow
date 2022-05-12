@@ -22,6 +22,7 @@ class Card(db.Model):
         return {
             'id': self.id,
             'order': self.order,
+            'title': self.title,
             'description': self.description,
             'user_id': self.user_id,
             'list_id': self.list_id
