@@ -5,7 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import { fetchBoards } from './store/board';
@@ -13,6 +12,7 @@ import { fetchLists } from './store/list';
 import { fetchCards } from './store/card';
 import SplashPage from './components/SplashPage';
 import HomePage from './components/HomePage';
+import SingleBoard from './components/SingleBoard';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,8 +56,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
+        <ProtectedRoute path='/boards/:id' exact={true} >
+          <SingleBoard />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
