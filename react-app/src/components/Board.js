@@ -1,5 +1,11 @@
-export default function Board() {
+import { Link } from "react-router-dom";
+
+export default function Board({ board }) {
+
     return (
-        <h1>Board</h1>
+        <>
+            <Link to={`/boards/${board.id}`}>{board.title}</Link>
+        </>
+
     )
 }
