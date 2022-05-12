@@ -22,14 +22,25 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      // if (user) {
+      // await dispatch(fetchBoards());
+      // await dispatch(fetchLists());
+      // await dispatch(fetchCards());
+      // }
+      // setLoaded(true);
+    })();
+  }, [dispatch]);
+
+  useEffect(() => {
+    (async () => {
       if (user) {
         await dispatch(fetchBoards());
         await dispatch(fetchLists());
         await dispatch(fetchCards());
       }
       setLoaded(true);
-    })();
-  }, [dispatch]);
+    })()
+  }, [dispatch, user])
 
   if (!loaded) {
     return null;

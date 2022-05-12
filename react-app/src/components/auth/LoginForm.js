@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { fetchBoards } from '../../store/board';
+import { fetchCards } from '../../store/card';
+import { fetchLists } from '../../store/list';
 import { login } from '../../store/session';
 
 const LoginForm = () => {
@@ -15,6 +18,10 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      await dispatch(fetchBoards())
+      await dispatch(fetchLists());
+      await dispatch(fetchCards());
     }
   };
 
