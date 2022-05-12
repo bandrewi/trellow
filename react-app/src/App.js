@@ -21,28 +21,36 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(authenticate());
-      // if (user) {
-      // await dispatch(fetchBoards());
-      // await dispatch(fetchLists());
-      // await dispatch(fetchCards());
-      // }
-      // setLoaded(true);
-    })();
-  }, [dispatch]);
-
-  useEffect(() => {
-    (async () => {
+      console.log('SET USER')
+      const user = await dispatch(authenticate());
+      console.log('USER', user)
       if (user) {
+        console.log('FETCH CALLS')
         await dispatch(fetchBoards());
         await dispatch(fetchLists());
         await dispatch(fetchCards());
       }
       setLoaded(true);
-    })()
-  }, [dispatch, user])
+    })();
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   // console.log('FETCH CALLS')
+  //   // console.log('USER', user)
+  //   (async () => {
+  //     // console.log('ASYNC FETCH')
+  //     if (user) {
+  //       // console.log('FETCHED')
+  //       await dispatch(fetchBoards());
+  //       await dispatch(fetchLists());
+  //       await dispatch(fetchCards());
+  //     }
+  //     setLoaded(true);
+  //   })()
+  // }, [dispatch, user])
 
   if (!loaded) {
+    console.log('LOADED FALSE')
     return null;
   }
 
@@ -56,9 +64,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/boards/:id' exact={true} >
+        <Route path='/boards/:id' exact={true} >
           <SingleBoard />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
