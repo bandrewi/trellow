@@ -27,6 +27,7 @@ class List(db.Model):
             'title': self.title,
             'user_id': self.user_id,
             'board_id': self.board_id,
+            'cards': [card.to_dict() for card in self.cards]
             # 'created_at': self.created_at
             # 'updated_at': self.updated_at
         }

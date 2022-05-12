@@ -36,7 +36,7 @@ def new_board():
         return new_board.to_dict()
 
     if form.errors:
-        return form.errors, 400
+        return {"errors": form.errors}, 400
 
 # UPDATE A BOARD
 @board_routes.route('/<int:id>', methods=['PUT'])
@@ -50,7 +50,9 @@ def edit_board(id):
         db.session.commit()
         return board.to_dict()
     else:
-        return {"title": "Please provide a title"}, 400
+        return {"errors":
+        {"title": "Please provide a title"}
+        }, 400
 
 # DELETE A BOARD
 @board_routes.route('/<int:id>', methods=['DELETE'])
