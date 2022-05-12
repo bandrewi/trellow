@@ -10,7 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import { fetchBoards } from './store/board';
 import { fetchLists } from './store/list';
-import { createCard, deleteCard, editCard, fetchCards } from './store/card';
+import { fetchCards } from './store/card';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
