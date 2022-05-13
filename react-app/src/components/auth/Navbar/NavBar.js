@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../LogoutButton';
+import Create from './Create';
 import './navbar.css'
 
 const NavBar = () => {
@@ -19,6 +20,9 @@ const NavBar = () => {
             </li>
             <li>
               <LogoutButton />
+            </li>
+            <li>
+              <Create />
             </li>
           </>) : (
           <>
