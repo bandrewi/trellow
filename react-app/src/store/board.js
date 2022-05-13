@@ -51,7 +51,7 @@ export const createBoard = (title) => async (dispatch) => {
     }
 }
 
-export const editBoard = ({ id, title }) => async (dispatch) => {
+export const editBoard = (id, title) => async (dispatch) => {
     const res = await fetch(`/api/boards/${id}`, {
         method: "PUT",
         headers: {
@@ -73,7 +73,7 @@ export const editBoard = ({ id, title }) => async (dispatch) => {
     }
 }
 
-export const deleteBoard = ({ id }) => async (dispatch) => {
+export const deleteBoard = (id) => async (dispatch) => {
     await fetch(`/api/boards/${id}`, {
         method: "DELETE"
     })
