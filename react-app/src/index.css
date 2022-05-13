@@ -1,10 +1,29 @@
 /* TODO Add site wide styles */
 
-/* ul {
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+ul {
     list-style: none;
 }
 
-html,
-body {
-    box-sizing: border-box;
-} */
+#big-container-1 {
+    padding: 112px, 15px, 80px;
+    margin: 0px, 76.5px;
+    align-items: center;
+}
+
+#container-1>* {
+    font-family: sans-serif;
+}
+
+#container-1-heading {
+    font-size: 48px;
+}
+
+#container-1-paragraph {
+    font-size: 20px;
+}

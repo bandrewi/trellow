@@ -16,7 +16,7 @@ export default function SingleBoard() {
 
     const handleEdit = () => {
         const titleElement = document.getElementById('board-title')
-        const title = titleElement.textContent
+        const title = titleElement.innerText
         dispatch(editBoard(id, title))
     }
 
