@@ -8,44 +8,57 @@ import './navbar.css'
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
 
+  const body = document.querySelector('body')
+  body.style.backgroundColor = '#eae6ff'
+
   return (
-    <div id='nav-bar'>
-      <ul id='nav-bar-ul'>
-        {user ? (
-          <>
+    <>
+      {user ? (
+        <div id='user-navbar'>
+          <ul id='user-left' >
             <li>
               <NavLink to='/' exact={true} activeClassName='active'>
-                Home
+                Trellow
               </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
             </li>
             <li>
               <Create />
             </li>
-          </>) : (
-          <>
+          </ul>
+          <ul id='user-right'>
             <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
+              <LogoutButton />
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <div id='nonuser-navbar'>
+          <ul id='nonuser-left'>
+            <li>
+              <img id='nonuser-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+            </li>
+          </ul>
+          <ul id='nonuser-right'>
+            <li>
+              <NavLink id='login' to='/login' exact={true} activeClassName='active'>
+                Log in
               </NavLink>
             </li>
             <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
+              <button id='signup'>Sign Up
+                <NavLink to='/sign-up' exact={true} activeClassName='active' />
+              </button>
             </li>
-          </>
-        )
-        }
-        {/* <li>
+          </ul>
+        </div>
+      )
+      }
+      {/* <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
         </li> */}
-      </ul>
-    </div>
+    </>
   );
 }
 
