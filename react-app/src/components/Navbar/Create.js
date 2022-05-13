@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
-import { createBoard } from "../../../store/board";
+import { createBoard } from "../../store/board";
 
 export default function Create() {
     const dispatch = useDispatch()
