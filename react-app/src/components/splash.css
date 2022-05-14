@@ -1,9 +1,9 @@
+/* SECTION 1 */
 #img-1 {
     width: 445px;
     margin: 0px 95px;
     padding: 0px 15px;
 }
-
 
 #big-container-1 {
     padding: 112px, 15px, 80px;
@@ -47,4 +47,52 @@
 #sign-up-free:hover {
     background-color: #0051cc;
     cursor: pointer;
+}
+
+/* SECTION 2 */
+
+#container-2 {
+    text-align: center;
+    padding-top: 90px;
+}
+
+#text-offset {
+    margin: 0px 160px 0px 0px;
+    padding: 0px 410px;
+}
+
+#container-2-text>* {
+    font-family: sans-serif;
+}
+
+#container-2-heading {
+    font-size: 36px;
+    margin: 0px 0px 8px;
+}
+
+#container-2-paragraph {
+    font-size: 20px;
+    margin: 0px 0px 24px;
+}
+
+#start-doing {
+    width: 165px;
+    height: 44px;
+    margin: 0px 0px 24px;
+    border: 1px solid #0065FF;
+    background-color: #eae6ff;
+    border-radius: 4px;
+    color: #0065FF;
+    font-size: 20px;
+}
+
+#start-doing:hover {
+    background-color: #0065FF;
+    color: white;
+    cursor: pointer;
+}
+
+#img-2 {
+    width: 1230px;
+    margin-right: 135px;
 }
