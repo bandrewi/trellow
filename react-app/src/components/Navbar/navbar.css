@@ -8,24 +8,15 @@
 
 #nonuser-navbar {
     position: relative;
-    display: flex;
     font-family: sans-serif;
-}
-
-#nonuser-left {
-    display: flex;
+    align-items: center;
     justify-content: space-between;
-}
-
-#nonuser-left>li>a,
-#nonuser-right>li>a {
-    color: white;
-    text-decoration: none;
+    padding: 16px;
 }
 
 #nonuser-right {
-    display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
 }
 
 #nonuser-logo {
@@ -35,16 +26,23 @@
 #login {
     font-size: 17.5px;
     color: #0065FF;
+    text-decoration: none;
+    padding: 4px 10px;
 }
 
 #signup {
     font-family: sans-serif;
-    font-size: 17.5;
+    font-size: 17.5px;
     width: 80px;
-    height: 30px;
+    height: 36.25px;
     color: white;
     background: #0065FF;
     padding: 4px, 8px;
     border-radius: 4px;
-    border: transparent
+    border: 1px solid transparent
+}
+
+#signup:hover {
+    background-color: #0051cc;
+    cursor: pointer;
 }

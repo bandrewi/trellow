@@ -8,9 +8,6 @@ import './navbar.css'
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
 
-  const body = document.querySelector('body')
-  body.style.backgroundColor = '#eae6ff'
-
   return (
     <>
       {user ? (
@@ -32,22 +29,24 @@ const NavBar = () => {
           </ul>
         </div>
       ) : (
-        <div id='nonuser-navbar'>
+        <div id='nonuser-navbar' className='flex-row'>
           <ul id='nonuser-left'>
             <li>
-              <img id='nonuser-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+              <NavLink to='/'>
+                <img id='nonuser-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+              </NavLink>
             </li>
           </ul>
-          <ul id='nonuser-right'>
+          <ul id='nonuser-right' className='flex-row'>
             <li>
               <NavLink id='login' to='/login' exact={true} activeClassName='active'>
                 Log in
               </NavLink>
             </li>
             <li>
-              <button id='signup'>Sign Up
-                <NavLink to='/sign-up' exact={true} activeClassName='active' />
-              </button>
+              <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                <button id='signup'>Sign up</button>
+              </NavLink>
             </li>
           </ul>
         </div>
