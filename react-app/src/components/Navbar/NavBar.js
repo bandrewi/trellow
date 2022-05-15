@@ -11,10 +11,10 @@ const NavBar = () => {
   return (
     <>
       {user ? (
-        <div id='user-navbar'>
-          <ul id='user-left' >
+        <div id='user-navbar' className='flex-row'>
+          <ul id='user-left' className='flex-row'>
             <li>
-              <NavLink to='/' exact={true} activeClassName='active'>
+              <NavLink id='user-logo' to='/' exact={true} activeClassName='active'>
                 Trellow
               </NavLink>
             </li>

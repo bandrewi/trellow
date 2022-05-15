@@ -1,11 +1,25 @@
+/* USER */
 #user-navbar {
     background-color: #026AA7;
     height: 44px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+#user-left {
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+}
+
+#user-logo {
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+/* NONUSER */
 #nonuser-navbar {
     /* position: sticky; */
     top: 0px;
