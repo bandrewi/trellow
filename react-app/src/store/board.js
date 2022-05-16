@@ -100,9 +100,19 @@ export default function boards(state = {}, action) {
             newState = { ...state }
             delete newState[action.id]
             return newState
-        // case ADD_LIST:
-        //     newState = {...state}
-        //     newState[action.]
+        case ADD_LIST:
+            newState = { ...state }
+            // console.log('===========ACTION', action)
+            // console.log('===========LIST', action.list)
+            // console.log('===========BOARD', newState[action.list.board_id])
+            // console.log('===========LISTS', newState[action.list.board_id].lists)
+            newState[action.list.board_id].lists =
+                [...newState[action.list.board_id].lists, action.list]
+            return newState
+        // return {
+        //     ...state,
+        //     state[action.board_id].lists = 
+        // }
         case REMOVE_LIST:
             newState = { ...state }
             // console.log('===========ACTION', action)
