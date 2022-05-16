@@ -9,13 +9,12 @@ export default function List({ list }) {
         dispatch(deleteList(list.id, list.board_id))
     }
 
-    const handleEdit = () => {
-        const titleElement = document.getElementById(`list-title-${list.id}`)
-        const title = titleElement.innerText
-        console.log("ELEMENT", titleElement)
-        console.log('TITLE', title)
+    const handleEdit = (e) => {
+        // const titleElement = document.getElementById(`list-title-${list.id}`)
+        // const title = titleElement.innerText
+        // dispatch(editList(list.id, list.order, title))
         // CHANGE ORDER BASED ON DRAG DROP
-        dispatch(editList(list.id, list.order, title))
+        dispatch(editList(list.id, list.order, e.target.innerText))
     }
 
     return (
