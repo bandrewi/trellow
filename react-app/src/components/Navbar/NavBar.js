@@ -9,43 +9,55 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user)
 
   return (
-    <div id='nav-bar'>
-      <ul id='nav-bar-ul'>
-        {user ? (
-          <>
+    <>
+      {user ? (
+        <div id='user-navbar' className='flex-row'>
+          <ul id='user-left' className='flex-row'>
             <li>
-              <NavLink to='/' exact={true} activeClassName='active'>
-                Home
+              <NavLink id='user-logo' to='/' exact={true} activeClassName='active'>
+                Trellow
               </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
             </li>
             <li>
               <Create />
             </li>
-          </>) : (
-          <>
+          </ul>
+          <ul id='user-right'>
             <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
+              <LogoutButton />
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <div id='nonuser-navbar' className='flex-row'>
+          <ul id='nonuser-left'>
+            <li>
+              <NavLink to='/'>
+                <img id='nonuser-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+              </NavLink>
+            </li>
+          </ul>
+          <ul id='nonuser-right' className='flex-row'>
+            <li>
+              <NavLink id='login' to='/login' exact={true} activeClassName='active'>
+                Log in
               </NavLink>
             </li>
             <li>
               <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
+                <button id='signup'>Sign up</button>
               </NavLink>
             </li>
-          </>
-        )
-        }
-        {/* <li>
+          </ul>
+        </div>
+      )
+      }
+      {/* <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
         </li> */}
-      </ul>
-    </div>
+    </>
   );
 }
 
