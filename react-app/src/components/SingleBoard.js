@@ -10,6 +10,7 @@ export default function SingleBoard() {
     const dispatch = useDispatch()
     const [listTitle, setListTitle] = useState('')
     const boards = useSelector(state => state.boards)
+    // const lists = useSelector(state => state.lists)
     const { id } = useParams()
     const board = boards[id]
 
@@ -34,13 +35,18 @@ export default function SingleBoard() {
     function addList() {
         dispatch(createList(board.lists.length + 1, listTitle, +id))
         hideInput()
+        setListTitle('')
     }
 
     const handleEdit = (e) => {
         // const titleElement = document.getElementById('board-title')
         // const title = titleElement.innerText
         // dispatch(editBoard(id, title))
-        dispatch(editBoard(id, e.target.innerText))
+        const boardTitle = e.target.innerText
+        if (board.title !== boardTitle) {
+            dispatch(editBoard(id, e.target.innerText))
+        }
+        return
     }
 
     function handleDelete(e) {

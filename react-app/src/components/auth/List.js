@@ -14,7 +14,11 @@ export default function List({ list }) {
         // const title = titleElement.innerText
         // dispatch(editList(list.id, list.order, title))
         // CHANGE ORDER BASED ON DRAG DROP
-        dispatch(editList(list.id, list.order, e.target.innerText))
+        const listTitle = e.target.innerText
+        if (list.title !== listTitle) {
+            dispatch(editList(list.id, list.order, listTitle))
+        }
+        return
     }
 
     return (
