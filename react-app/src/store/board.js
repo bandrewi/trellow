@@ -1,3 +1,5 @@
+import { ADD_LIST, UPDATE_LIST, REMOVE_LIST } from './list'
+
 const LOAD_BOARDS = 'boards/LOAD_BOARDS'
 const ADD_BOARD = 'boards/ADD_BOARD'
 const UPDATE_BOARD = 'boards/UPDATE_BOARD'
@@ -97,6 +99,17 @@ export default function boards(state = {}, action) {
         case REMOVE_BOARD:
             newState = { ...state }
             delete newState[action.id]
+            return newState
+        // case ADD_LIST:
+        //     newState = {...state}
+        //     newState[action.]
+        case REMOVE_LIST:
+            newState = { ...state }
+            // console.log('===========ACTION', action)
+            // console.log('===========BOARD', newState[action.boardId])
+            // console.log('===========LISTS', newState[action.boardId].lists)
+            newState[action.boardId].lists =
+                newState[action.boardId].lists.filter(list => list.id !== +action.id)
             return newState
         default:
             return state;
