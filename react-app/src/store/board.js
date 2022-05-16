@@ -109,10 +109,17 @@ export default function boards(state = {}, action) {
             newState[action.list.board_id].lists =
                 [...newState[action.list.board_id].lists, action.list]
             return newState
-        // return {
-        //     ...state,
-        //     state[action.board_id].lists = 
-        // }
+        case UPDATE_LIST:
+            newState = { ...state }
+            newState[action.list.board_id].lists =
+                newState[action.list.board_id].lists.map(list => {
+                    if (list.id === action.list.id) {
+                        return action.list
+                    } else {
+                        return list
+                    }
+                })
+            return newState
         case REMOVE_LIST:
             newState = { ...state }
             // console.log('===========ACTION', action)
