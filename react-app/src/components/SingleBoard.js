@@ -81,7 +81,6 @@ export default function SingleBoard() {
                         </div>
                         <div id="add-list-div"
                             style={{ display: 'none' }}
-                            tabIndex='1'
                             onBlur={hideInput}
                         >
                             <input

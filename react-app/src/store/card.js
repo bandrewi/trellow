@@ -29,7 +29,7 @@ export const fetchCards = () => async (dispatch) => {
     dispatch(loadCards(data))
 }
 
-export const createCard = ({ order, title, description, list_id }) => async (dispatch) => {
+export const createCard = (order, title, list_id, description) => async (dispatch) => {
     const res = await fetch('/api/cards/', {
         method: "POST",
         headers: {
