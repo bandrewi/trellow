@@ -10,6 +10,9 @@ export default function SingleBoard() {
     const { id } = useParams()
     const board = boards[id]
 
+    // const body = document.querySelector('body')
+    // body.style.backgroundColor = '#ffffff'
+
     if (!board) {
         return <Redirect to='/' />;
     }

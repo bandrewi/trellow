@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import './splash.css'
 
 export default function SplashPage() {
-    const body = document.querySelector('body')
-    body.style.backgroundColor = '#eae6ff'
+    // const body = document.querySelector('body')
+    // body.style.backgroundColor = '#eae6ff'
 
     return (
         <>
