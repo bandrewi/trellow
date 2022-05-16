@@ -1,7 +1,7 @@
 const LOAD_LISTS = 'lists/LOAD_LISTS'
-const ADD_LIST = 'lists/ADD_LIST'
-const UPDATE_LIST = 'lists/UPDATE_LIST'
-const REMOVE_LIST = 'lists/REMOVE_LIST'
+export const ADD_LIST = 'lists/ADD_LIST'
+export const UPDATE_LIST = 'lists/UPDATE_LIST'
+export const REMOVE_LIST = 'lists/REMOVE_LIST'
 
 const loadLists = ({ lists }) => ({
     type: LOAD_LISTS,
@@ -18,9 +18,10 @@ const updateList = (list) => ({
     list
 })
 
-const removeList = (id) => ({
+const removeList = (id, boardId) => ({
     type: REMOVE_LIST,
-    id
+    id,
+    boardId
 })
 
 export const fetchLists = () => async (dispatch) => {
@@ -29,7 +30,7 @@ export const fetchLists = () => async (dispatch) => {
     dispatch(loadLists(data))
 }
 
-export const createList = ({ order, title, board_id }) => async (dispatch) => {
+export const createList = (order, title, board_id) => async (dispatch) => {
     const res = await fetch('/api/lists/', {
         method: "POST",
         headers: {
@@ -55,7 +56,7 @@ export const createList = ({ order, title, board_id }) => async (dispatch) => {
     }
 }
 
-export const editList = ({ id, order, title }) => async (dispatch) => {
+export const editList = (id, order, title) => async (dispatch) => {
     const res = await fetch(`/api/lists/${id}`, {
         method: "PUT",
         headers: {
@@ -80,11 +81,11 @@ export const editList = ({ id, order, title }) => async (dispatch) => {
     }
 }
 
-export const deleteList = ({ id }) => async (dispatch) => {
+export const deleteList = (id, boardId) => async (dispatch) => {
     await fetch(`/api/lists/${id}`, {
         method: "DELETE"
     })
-    dispatch(removeList(id))
+    dispatch(removeList(id, boardId))
 }
 export default function lists(state = {}, action) {
     let newState;
