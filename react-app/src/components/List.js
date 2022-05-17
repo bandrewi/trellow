@@ -10,6 +10,7 @@ export default function List({ list }) {
     const dispatch = useDispatch()
     const [cardTitle, setCardTitle] = useState('')
 
+    // ADD CARD DISPLAY
     function displayInput() {
         document.getElementById(`add-card-${list.id}`).style.display = 'none'
         document.getElementById(`add-card-div-${list.id}`).style.display = 'block'
@@ -27,6 +28,7 @@ export default function List({ list }) {
         setCardTitle('')
     }
 
+    // LIST FUNCTIONS
     function handleDelete() {
         dispatch(deleteList(list.id, list.board_id))
     }
@@ -34,6 +36,10 @@ export default function List({ list }) {
     const handleEdit = (e) => {
         // CHANGE ORDER BASED ON DRAG DROP
         const listTitle = e.target.innerText
+        if (listTitle === '') {
+            e.target.innerText = list.title
+            return
+        }
         if (list.title !== listTitle) {
             dispatch(editList(list.id, list.order, listTitle))
         }
