@@ -110,6 +110,7 @@ export default function boards(state = {}, action) {
             newState[action.list.board_id].lists =
                 [...newState[action.list.board_id].lists, action.list]
             return newState
+        // TECHNICALLY DONT HAVE TO UPDATE LISTS FOR SAME REASON AS CARDS EXPLAINED BELOW
         case UPDATE_LIST:
             newState = { ...state }
             newState[action.list.board_id].lists =
@@ -135,6 +136,11 @@ export default function boards(state = {}, action) {
             newState[action.card.board_id].lists[listIdx].cards =
                 [...newState[action.card.board_id].lists[listIdx].cards, action.card]
             return newState
+        // DONT HAVE TO UPDATE REDUX STATE FOR CARDS BC DOM IS ALREADY CHANGED AND 
+        // ON REFRESH CARDS ARE FETCHED AGAIN
+        // case UPDATE_CARD:
+        //     newState = {...state}
+        //     return newState
         case REMOVE_CARD:
             newState = { ...state }
             const listIndex = newState[action.card.board_id].lists.findIndex(list => list.id === action.card.list_id)
