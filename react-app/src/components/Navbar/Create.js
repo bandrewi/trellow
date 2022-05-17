@@ -28,7 +28,6 @@ export default function Create() {
 
     const handleCreate = (e) => {
         e.preventDefault()
-
         dispatch(createBoard(title))
     }
 
@@ -44,7 +43,7 @@ export default function Create() {
                     >
                     </input>
                 </label>
-                <button>Create</button>
+                <button id="create-btn" disabled={!title}>Create</button>
             </form>
             {/* CODE TO IMPLEMENT WHEN WORKPLACE OR TEMPLATES HAVE BEEN MADE */}
             {/* {!showMenu && (
