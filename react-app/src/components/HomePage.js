@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import Board from "./Board";
+import './home.css'
 
 export default function HomePage() {
     const boards = useSelector(state => Object.values(state.boards))

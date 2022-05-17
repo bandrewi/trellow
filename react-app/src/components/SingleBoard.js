@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect, useParams } from "react-router-dom"
+
 import { deleteBoard, editBoard } from "../store/board"
 import { createList } from "../store/list"
 import List from "./List"

@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux"
 import { deleteCard, editCard } from "../store/card"
 
+import './card.css'
+
 export default function Card({ card }) {
     const dispatch = useDispatch()
 
