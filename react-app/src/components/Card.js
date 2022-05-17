@@ -14,6 +14,10 @@ export default function Card({ card }) {
         // CHANGE ORDER BASED ON DRAG DROP
         // ADD IN EDIT FOR DESCRIPTION
         const cardTitle = e.target.innerText
+        if (cardTitle === '') {
+            e.target.innerText = card.title
+            return
+        }
         if (card.title !== cardTitle) {
             dispatch(editCard(card.id, card.order, cardTitle, ''))
         }
