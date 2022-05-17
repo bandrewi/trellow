@@ -18,9 +18,9 @@ const updateCard = (card) => ({
     card
 })
 
-const removeCard = (id) => ({
+const removeCard = (card) => ({
     type: REMOVE_CARD,
-    id
+    card
 })
 
 export const fetchCards = () => async (dispatch) => {
@@ -82,11 +82,13 @@ export const editCard = ({ id, order, title, description }) => async (dispatch) 
     }
 }
 
-export const deleteCard = (id) => async (dispatch) => {
+export const deleteCard = (card) => async (dispatch) => {
+    const { id } = card
+    console.log('ID', id)
     await fetch(`/api/cards/${id}`, {
         method: "DELETE"
     })
-    dispatch(removeCard(id))
+    dispatch(removeCard(card))
 }
 export default function cards(state = {}, action) {
     let newState;
@@ -105,7 +107,7 @@ export default function cards(state = {}, action) {
             return newState
         case REMOVE_CARD:
             newState = { ...state }
-            delete newState[action.id]
+            delete newState[action.card.id]
             return newState
         default:
             return state;
