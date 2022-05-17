@@ -69,7 +69,7 @@ export default function SingleBoard() {
                 <button onClick={handleDelete}>Delete</button>
             </div>
             <div>
-                <ul>
+                <ul id="list-container" className="flex-row">
                     {board.lists.map(list => (
                         <li key={list.id}>
                             <List list={list} />
