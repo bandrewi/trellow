@@ -1,5 +1,33 @@
+import { useDispatch } from "react-redux"
+import { deleteCard, editCard } from "../../store/card"
+
 export default function Card({ card }) {
+    const dispatch = useDispatch()
+
+    function handleDelete() {
+        dispatch(deleteCard(card))
+    }
+
+    const handleEdit = (e) => {
+        // CHANGE ORDER BASED ON DRAG DROP
+        // ADD IN EDIT FOR DESCRIPTION
+        const cardTitle = e.target.innerText
+        if (card.title !== cardTitle) {
+            dispatch(editCard(card.id, card.order, cardTitle, ''))
+        }
+        return
+    }
+
     return (
-        <h1>{card.title}</h1>
+        <>
+            <h3
+                id={`list-title-${card.id}`}
+                contentEditable='true'
+                onBlur={handleEdit}
+            >
+                {card.title}
+            </h3>
+            <button onClick={handleDelete}>Delete</button>
+        </>
     )
 }

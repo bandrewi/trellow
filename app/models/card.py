@@ -25,7 +25,8 @@ class Card(db.Model):
             'title': self.title,
             'description': self.description,
             'user_id': self.user_id,
-            'list_id': self.list_id
+            'list_id': self.list_id,
+            'board_id': self.list.board_id
             # 'created_at': self.created_at
             # 'updated_at': self.updated_at
         }

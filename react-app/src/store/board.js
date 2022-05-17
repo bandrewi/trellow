@@ -1,3 +1,6 @@
+import { ADD_LIST, UPDATE_LIST, REMOVE_LIST } from './list'
+import { ADD_CARD, UPDATE_CARD, REMOVE_CARD } from './card'
+
 const LOAD_BOARDS = 'boards/LOAD_BOARDS'
 const ADD_BOARD = 'boards/ADD_BOARD'
 const UPDATE_BOARD = 'boards/UPDATE_BOARD'
@@ -97,6 +100,52 @@ export default function boards(state = {}, action) {
         case REMOVE_BOARD:
             newState = { ...state }
             delete newState[action.id]
+            return newState
+        case ADD_LIST:
+            newState = { ...state }
+            // console.log('===========ACTION', action)
+            // console.log('===========LIST', action.list)
+            // console.log('===========BOARD', newState[action.list.board_id])
+            // console.log('===========LISTS', newState[action.list.board_id].lists)
+            newState[action.list.board_id].lists =
+                [...newState[action.list.board_id].lists, action.list]
+            return newState
+        // TECHNICALLY DONT HAVE TO UPDATE LISTS FOR SAME REASON AS CARDS EXPLAINED BELOW
+        case UPDATE_LIST:
+            newState = { ...state }
+            newState[action.list.board_id].lists =
+                newState[action.list.board_id].lists.map(list => {
+                    if (list.id === action.list.id) {
+                        return action.list
+                    } else {
+                        return list
+                    }
+                })
+            return newState
+        case REMOVE_LIST:
+            newState = { ...state }
+            // console.log('===========ACTION', action)
+            // console.log('===========BOARD', newState[action.boardId])
+            // console.log('===========LISTS', newState[action.boardId].lists)
+            newState[action.boardId].lists =
+                newState[action.boardId].lists.filter(list => list.id !== +action.id)
+            return newState
+        case ADD_CARD:
+            newState = { ...state }
+            const listIdx = newState[action.card.board_id].lists.findIndex(list => list.id === action.card.list_id)
+            newState[action.card.board_id].lists[listIdx].cards =
+                [...newState[action.card.board_id].lists[listIdx].cards, action.card]
+            return newState
+        // DONT HAVE TO UPDATE REDUX STATE FOR CARDS BC DOM IS ALREADY CHANGED AND 
+        // ON REFRESH CARDS ARE FETCHED AGAIN
+        // case UPDATE_CARD:
+        //     newState = {...state}
+        //     return newState
+        case REMOVE_CARD:
+            newState = { ...state }
+            const listIndex = newState[action.card.board_id].lists.findIndex(list => list.id === action.card.list_id)
+            newState[action.card.board_id].lists[listIndex].cards =
+                newState[action.card.board_id].lists[listIndex].cards.filter(card => card.id !== +action.card.id)
             return newState
         default:
             return state;

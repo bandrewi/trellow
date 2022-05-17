@@ -1,7 +1,7 @@
 const LOAD_CARDS = 'cards/LOAD_CARDS'
-const ADD_CARD = 'cards/ADD_CARD'
-const UPDATE_CARD = 'cards/UPDATE_CARD'
-const REMOVE_CARD = 'cards/REMOVE_CARD'
+export const ADD_CARD = 'cards/ADD_CARD'
+export const UPDATE_CARD = 'cards/UPDATE_CARD'
+export const REMOVE_CARD = 'cards/REMOVE_CARD'
 
 const loadCards = ({ cards }) => ({
     type: LOAD_CARDS,
@@ -18,9 +18,9 @@ const updateCard = (card) => ({
     card
 })
 
-const removeCard = (id) => ({
+const removeCard = (card) => ({
     type: REMOVE_CARD,
-    id
+    card
 })
 
 export const fetchCards = () => async (dispatch) => {
@@ -29,7 +29,7 @@ export const fetchCards = () => async (dispatch) => {
     dispatch(loadCards(data))
 }
 
-export const createCard = ({ order, title, description, list_id }) => async (dispatch) => {
+export const createCard = (order, title, list_id, description) => async (dispatch) => {
     const res = await fetch('/api/cards/', {
         method: "POST",
         headers: {
@@ -56,7 +56,7 @@ export const createCard = ({ order, title, description, list_id }) => async (dis
     }
 }
 
-export const editCard = ({ id, order, title, description }) => async (dispatch) => {
+export const editCard = (id, order, title, description) => async (dispatch) => {
     const res = await fetch(`/api/cards/${id}`, {
         method: "PUT",
         headers: {
@@ -82,11 +82,13 @@ export const editCard = ({ id, order, title, description }) => async (dispatch) 
     }
 }
 
-export const deleteCard = ({ id }) => async (dispatch) => {
+export const deleteCard = (card) => async (dispatch) => {
+    const { id } = card
+    console.log('ID', id)
     await fetch(`/api/cards/${id}`, {
         method: "DELETE"
     })
-    dispatch(removeCard(id))
+    dispatch(removeCard(card))
 }
 export default function cards(state = {}, action) {
     let newState;
@@ -105,7 +107,7 @@ export default function cards(state = {}, action) {
             return newState
         case REMOVE_CARD:
             newState = { ...state }
-            delete newState[action.id]
+            delete newState[action.card.id]
             return newState
         default:
             return state;
