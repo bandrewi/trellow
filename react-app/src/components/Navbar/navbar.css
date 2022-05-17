@@ -24,12 +24,13 @@
 
 /* NONUSER */
 #nonuser-navbar {
-    /* position: sticky; */
+    position: sticky;
     top: 0px;
     font-family: sans-serif;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
+    width: 98%;
 }
 
 #nonuser-right {
