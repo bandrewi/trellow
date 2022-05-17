@@ -129,6 +129,12 @@ export default function boards(state = {}, action) {
             newState[action.boardId].lists =
                 newState[action.boardId].lists.filter(list => list.id !== +action.id)
             return newState
+        case ADD_CARD:
+            newState = { ...state }
+            const listIdx = newState[action.card.board_id].lists.findIndex(list => list.id === action.card.list_id)
+            newState[action.card.board_id].lists[listIdx].cards =
+                [...newState[action.card.board_id].lists[listIdx].cards, action.card]
+            return newState
         default:
             return state;
     }
