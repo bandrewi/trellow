@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { createCard } from "../../store/card"
-import { deleteList, editList } from "../../store/list"
+import { createCard } from "../store/card"
+import { deleteList, editList } from "../store/list"
 import Card from "./Card"
 
 export default function List({ list }) {

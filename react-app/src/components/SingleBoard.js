@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect, useParams } from "react-router-dom"
 import { deleteBoard, editBoard } from "../store/board"
 import { createList } from "../store/list"
-import List from "./auth/List"
+import List from "./List"
 import './singleboard.css'
 
 export default function SingleBoard() {
