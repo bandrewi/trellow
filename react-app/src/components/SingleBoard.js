@@ -22,6 +22,7 @@ export default function SingleBoard() {
         return <Redirect to='/' />;
     }
 
+    //DISPLAY INPUT FOR ADD LIST
     function displayInput() {
         document.getElementById('add-list').style.display = 'none'
         document.getElementById('add-list-div').style.display = 'block'
@@ -39,11 +40,17 @@ export default function SingleBoard() {
         setListTitle('')
     }
 
+    // BOARD FUNCTIONS
     const handleEdit = (e) => {
         // const titleElement = document.getElementById('board-title')
         // const title = titleElement.innerText
         // dispatch(editBoard(id, title))
+        // CAN ADD AUTOSELECT TEXT LATER ON (ONLY WORKS ON INPUT FIELD)
         const boardTitle = e.target.innerText
+        if (boardTitle === '') {
+            e.target.innerText = board.title
+            return
+        }
         if (board.title !== boardTitle) {
             dispatch(editBoard(id, e.target.innerText))
         }
@@ -56,6 +63,7 @@ export default function SingleBoard() {
         dispatch(deleteBoard(id))
         return <Redirect to='/' />;
     }
+
     return (
         <>
             <div >
@@ -92,7 +100,13 @@ export default function SingleBoard() {
                                 onChange={e => setListTitle(e.target.value)}
                             >
                             </input>
-                            <button id='add-list-btn' onMouseDown={addList}>Add List</button>
+                            <button
+                                id='add-list-btn'
+                                onMouseDown={addList}
+                                disabled={!listTitle}
+                            >
+                                Add List
+                            </button>
                         </div>
                     </li>
                 </ul>
