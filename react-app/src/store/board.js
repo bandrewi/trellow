@@ -135,6 +135,12 @@ export default function boards(state = {}, action) {
             newState[action.card.board_id].lists[listIdx].cards =
                 [...newState[action.card.board_id].lists[listIdx].cards, action.card]
             return newState
+        case REMOVE_CARD:
+            newState = { ...state }
+            const listIndex = newState[action.card.board_id].lists.findIndex(list => list.id === action.card.list_id)
+            newState[action.card.board_id].lists[listIndex].cards =
+                newState[action.card.board_id].lists[listIndex].cards.filter(card => card.id !== +action.card.id)
+            return newState
         default:
             return state;
     }

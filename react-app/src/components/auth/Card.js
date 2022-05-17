@@ -5,7 +5,7 @@ export default function Card({ card }) {
     const dispatch = useDispatch()
 
     function handleDelete() {
-        dispatch(deleteCard(card.id))
+        dispatch(deleteCard(card))
     }
 
     return (
