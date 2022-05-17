@@ -1,4 +1,5 @@
 import { ADD_LIST, UPDATE_LIST, REMOVE_LIST } from './list'
+import { ADD_CARD, UPDATE_CARD, REMOVE_CARD } from './card'
 
 const LOAD_BOARDS = 'boards/LOAD_BOARDS'
 const ADD_BOARD = 'boards/ADD_BOARD'

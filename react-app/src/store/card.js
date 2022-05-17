@@ -1,7 +1,7 @@
 const LOAD_CARDS = 'cards/LOAD_CARDS'
-const ADD_CARD = 'cards/ADD_CARD'
-const UPDATE_CARD = 'cards/UPDATE_CARD'
-const REMOVE_CARD = 'cards/REMOVE_CARD'
+export const ADD_CARD = 'cards/ADD_CARD'
+export const UPDATE_CARD = 'cards/UPDATE_CARD'
+export const REMOVE_CARD = 'cards/REMOVE_CARD'
 
 const loadCards = ({ cards }) => ({
     type: LOAD_CARDS,
