@@ -82,7 +82,7 @@ export const editCard = ({ id, order, title, description }) => async (dispatch) 
     }
 }
 
-export const deleteCard = ({ id }) => async (dispatch) => {
+export const deleteCard = (id) => async (dispatch) => {
     await fetch(`/api/cards/${id}`, {
         method: "DELETE"
     })
