@@ -79,7 +79,13 @@ export default function List({ list }) {
                             onChange={e => setCardTitle(e.target.value)}
                         >
                         </input>
-                        <button id='add-card-btn' onMouseDown={addCard}>Add Card</button>
+                        <button
+                            id='add-card-btn'
+                            onMouseDown={addCard}
+                            disabled={!cardTitle}
+                        >
+                            Add Card
+                        </button>
                     </div>
                 </li>
             </ul>
