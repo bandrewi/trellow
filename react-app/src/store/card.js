@@ -56,7 +56,7 @@ export const createCard = (order, title, list_id, description) => async (dispatc
     }
 }
 
-export const editCard = ({ id, order, title, description }) => async (dispatch) => {
+export const editCard = (id, order, title, description) => async (dispatch) => {
     const res = await fetch(`/api/cards/${id}`, {
         method: "PUT",
         headers: {
