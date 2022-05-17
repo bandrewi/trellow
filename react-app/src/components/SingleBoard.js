@@ -66,7 +66,7 @@ export default function SingleBoard() {
 
     return (
         <>
-            <div >
+            <div id="board-dash">
                 <h1
                     id='board-title'
                     contentEditable='true'
@@ -76,8 +76,8 @@ export default function SingleBoard() {
                 </h1>
                 <button onClick={handleDelete}>Delete</button>
             </div>
-            <div>
-                <ul id="list-container" className="flex-row">
+            <div id="list-container">
+                <ul id="list-ul" className="flex-row">
                     {board.lists.map(list => (
                         <li key={list.id}>
                             <List list={list} />
