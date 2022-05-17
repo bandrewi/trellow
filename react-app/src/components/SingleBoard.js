@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect, useParams } from "react-router-dom"
 
@@ -17,6 +17,20 @@ export default function SingleBoard() {
 
     // const body = document.querySelector('body')
     // body.style.backgroundColor = '#ffffff'
+    // useEffect(() => {
+    //     const listUl = document.getElementById('list-ul')
+    //     console.log('SCROLL WIDTH', listUl.scrollWidth)
+    //     console.log('CLIENT WIDTH', listUl.clientWidth)
+    // })
+    useEffect(() => {
+        const listUl = document.getElementById('list-ul')
+        const root = document.getElementById('root')
+        root.style.width = listUl.scrollWidth > listUl.clientWidth && 'fit-content'
+        // console.log('SCROLL WIDTH', listUl.scrollWidth)
+        // console.log('CLIENT WIDTH', listUl.clientWidth)
+        if (listUl.scrollWidth > listUl.clientWidth) console.log('SCROLL')
+    })
+
 
     if (!board) {
         return <Redirect to='/' />;

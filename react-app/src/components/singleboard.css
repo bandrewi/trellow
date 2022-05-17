@@ -9,8 +9,7 @@
 }
 
 #list-container {
-    display: inline-block;
-    overflow-x: auto;
+    /* overflow-x: auto; */
 }
 
 #list-ul {
@@ -23,4 +22,5 @@
     width: 272px;
     margin: 10px;
     border: 1px solid black;
+    background-color: #EBECF0;
 }

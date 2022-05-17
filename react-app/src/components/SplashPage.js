@@ -1,9 +1,16 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './splash.css'
 
 export default function SplashPage() {
     // const body = document.querySelector('body')
     // body.style.backgroundColor = '#eae6ff'
+
+
+    useEffect(() => {
+        const root = document.getElementById('root')
+        root.style.removeProperty('width')
+    })
 
     return (
         <>

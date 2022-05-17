@@ -21,11 +21,8 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      console.log('SET USER')
       const user = await dispatch(authenticate());
-      console.log('USER', user)
       if (user) {
-        console.log('FETCH CALLS')
         await dispatch(fetchBoards());
         await dispatch(fetchLists());
         await dispatch(fetchCards());
@@ -50,7 +47,6 @@ function App() {
   // }, [dispatch, user])
 
   if (!loaded) {
-    console.log('LOADED FALSE')
     return null;
   }
 
