@@ -108,7 +108,7 @@ export default function SingleBoard() {
                             <input
                                 id="add-list-input"
                                 type="text"
-                                placeholder="Enter a list title..."
+                                placeholder="Enter list title..."
                                 value={listTitle}
                                 onChange={e => setListTitle(e.target.value)}
                             >
