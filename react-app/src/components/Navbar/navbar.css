@@ -30,7 +30,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    width: 98%;
+    /* width: 98%; */
 }
 
 #nonuser-right {

@@ -38,13 +38,13 @@ export default function SingleBoard() {
 
     //DISPLAY INPUT FOR ADD LIST
     function displayInput() {
-        document.getElementById('add-list').style.display = 'none'
+        document.getElementById('add-list-text-container').style.display = 'none'
         document.getElementById('add-list-div').style.display = 'block'
         document.getElementById('add-list-input').focus()
     }
 
     function hideInput() {
-        document.getElementById('add-list').style.display = 'block'
+        document.getElementById('add-list-text-container').style.display = 'block'
         document.getElementById('add-list-div').style.display = 'none'
     }
 
@@ -93,14 +93,13 @@ export default function SingleBoard() {
             <div id="list-container">
                 <ul id="list-ul" className="flex-row">
                     {board.lists.map(list => (
-                        <li key={list.id}>
+                        <li key={list.id} className='list-li'>
                             <List list={list} />
                         </li>
                     ))}
-                    <li>
-                        <div id='add-list' onClick={displayInput}>
-                            <span>+</span>
-                            <span>Add a list</span>
+                    <li id="add-list-container" className="list-li">
+                        <div id='add-list-text-container' onClick={displayInput}>
+                            <span id='add-list-text'>＋Add a list</span>
                         </div>
                         <div id="add-list-div"
                             style={{ display: 'none' }}
