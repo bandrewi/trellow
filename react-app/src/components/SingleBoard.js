@@ -25,10 +25,10 @@ export default function SingleBoard() {
     useEffect(() => {
         const listUl = document.getElementById('list-ul')
         const root = document.getElementById('root')
-        root.style.width = listUl.scrollWidth > listUl.clientWidth && 'fit-content'
+        root.style.width = listUl?.scrollWidth > listUl?.clientWidth && 'fit-content'
         // console.log('SCROLL WIDTH', listUl.scrollWidth)
         // console.log('CLIENT WIDTH', listUl.clientWidth)
-        if (listUl.scrollWidth > listUl.clientWidth) console.log('SCROLL')
+        if (listUl?.scrollWidth > listUl?.clientWidth) console.log('SCROLL')
     })
 
 
