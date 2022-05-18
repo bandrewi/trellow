@@ -26,13 +26,14 @@ export default function Card({ card }) {
 
     return (
         <>
-            <h3
+            <h2
                 id={`list-title-${card.id}`}
                 contentEditable='true'
+                className="card-title"
                 onBlur={handleEdit}
             >
                 {card.title}
-            </h3>
+            </h2>
             <button onClick={handleDelete}>Delete</button>
         </>
     )
