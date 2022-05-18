@@ -20,6 +20,7 @@
     color: white;
     text-decoration: none;
     font-size: 25px;
+    height: 20px;
 }
 
 /* NONUSER */
@@ -39,7 +40,7 @@
 }
 
 #nonuser-logo {
-    height: 20px;
+    height: 35px;
 }
 
 #login {

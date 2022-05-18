@@ -15,7 +15,7 @@ const NavBar = () => {
           <ul id='user-left' className='flex-row'>
             <li>
               <NavLink id='user-logo' to='/' exact={true} activeClassName='active'>
-                <img id='nonuser-logo' src='https://i.imgur.com/k3SdrjY.png' alt='Trellow' />
+                <img id='user-logo' src='https://i.imgur.com/k3SdrjY.png' alt='Trellow' />
               </NavLink>
             </li>
             <li>
