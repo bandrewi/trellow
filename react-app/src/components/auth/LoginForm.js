@@ -50,7 +50,9 @@ const LoginForm = () => {
   return (
     <>
       <div id='login-trellow-logo-container'>
-        <img id='login-trellow-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+        <Link to='/'>
+          <img id='login-trellow-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+        </Link>
       </div>
       <div id='login-container'>
         <form id='login-form' onSubmit={onLogin}>
