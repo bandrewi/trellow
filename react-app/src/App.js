@@ -50,9 +50,24 @@ function App() {
     return null;
   }
 
+  const UserContainer = () => {
+    return (
+      <>
+        <NavBar />
+        <Switch>
+          <ProtectedRoute path='/boards/:id' exact={true} >
+            <SingleBoard />
+          </ProtectedRoute>
+          <Route path='/' exact={true} >
+            {user ? <HomePage /> : <SplashPage />}
+          </Route>
+          {/* PLACE 404 ROUTE HERE */}
+        </Switch>
+      </>
+    )
+  }
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -60,18 +75,35 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/boards/:id' exact={true} >
-          <SingleBoard />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/' exact={true} >
-          {user ? <HomePage /> : <SplashPage />}
+        <Route path='/'>
+          <UserContainer />
         </Route>
       </Switch>
     </BrowserRouter>
   );
+
+  // return (
+  //   <BrowserRouter>
+  //     <NavBar />
+  //     <Switch>
+  //       <Route path='/login' exact={true}>
+  //         <LoginForm />
+  //       </Route>
+  //       <Route path='/sign-up' exact={true}>
+  //         <SignUpForm />
+  //       </Route>
+  //       <ProtectedRoute path='/boards/:id' exact={true} >
+  //         <SingleBoard />
+  //       </ProtectedRoute>
+  //       <ProtectedRoute path='/users/:userId' exact={true} >
+  //         <User />
+  //       </ProtectedRoute>
+  //       <Route path='/' exact={true} >
+  //         {user ? <HomePage /> : <SplashPage />}
+  //       </Route>
+  //     </Switch>
+  //   </BrowserRouter>
+  // );
 }
 
 export default App;
