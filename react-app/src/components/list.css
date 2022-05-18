@@ -1,3 +1,4 @@
+/* LIST TITLE */
 #list-title-container {
     margin: 2px 4px 0px;
     padding: 0px 4px;
@@ -22,10 +23,52 @@
     color: red;
 }
 
-#add-card-container {
-    margin: 2px 0px 10px 5px;
+/* ADD CARD */
+.add-card-container {
+    margin: 2px 0px 7px 0px;
+    padding: 0px 0px 0px 3px;
+}
+
+.add-card-container-input {
+    margin: 2px 0px 7px 0px;
+    padding: 0px 0px 0px 3px;
+}
+
+.add-card-container:hover {
+    cursor: pointer;
+    background-color: #091e4214;
+}
+
+.add-card-text-container {
+    padding-top: 2px;
+    padding-bottom: 4px;
 }
 
 #add-card-text {
     font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.add-card-input {
+    outline-color: transparent;
+    padding: 3px 5px 3px 3px;
+    margin-bottom: 7px;
+    width: 243px;
+    height: 20px;
+}
+
+#add-card-btn {
+    background: #0079bf;
+    width: 74px;
+    height: 25px;
+    padding: 4px 8px;
+    color: white;
+    border: transparent;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#add-card-btn:hover {
+    background-color: #026aa7;
+    cursor: pointer;
 }
