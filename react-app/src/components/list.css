@@ -53,7 +53,7 @@
 .add-card-input {
     outline-color: transparent;
     padding: 3px 5px 3px 3px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     width: 243px;
     height: 20px;
 }
@@ -72,4 +72,9 @@
 #add-card-btn:hover {
     background-color: #026aa7;
     cursor: pointer;
+}
+
+#add-card-btn:disabled {
+    background-color: #026ba77a;
+    cursor: not-allowed;
 }
