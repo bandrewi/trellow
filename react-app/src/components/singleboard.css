@@ -26,8 +26,14 @@
     border-radius: 5px;
 }
 
+/* ADD LIST */
 #add-list-container {
     background-color: white;
+}
+
+#add-list-details {
+    /* border: red solid 1px; */
+    background-color: #EBECF0;
 }
 
 #add-list-text-container {
@@ -40,6 +46,54 @@
     /* padding: 0px 0px 8px 16px; */
 }
 
+#add-list-text-container:hover {
+    cursor: pointer;
+    background-color: #091e421e;
+}
+
+
 #add-list-text {
     color: black;
+}
+
+/* ADD LIST FORM */
+#list-input-container {
+    padding-top: 6px;
+    margin: 0px 2px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#add-list-input {
+    outline-color: #026AA7;
+    padding: 3px 18px 3px 3px;
+    margin-bottom: 7px;
+    width: 230px;
+    height: 20px;
+}
+
+#list-btn-container {
+    margin-left: 9px;
+    /* border: red solid 1px; */
+}
+
+#add-list-btn {
+    background: #0079bf;
+    width: 74px;
+    height: 25px;
+    padding: 4px 8px;
+    color: white;
+    border: transparent;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#add-list-btn:hover {
+    cursor: pointer;
+    background-color: #026aa7;
+}
+
+#add-list-btn:disabled {
+    background-color: #026ba76b;
+    cursor: not-allowed;
 }

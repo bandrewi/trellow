@@ -39,13 +39,13 @@ export default function SingleBoard() {
     //DISPLAY INPUT FOR ADD LIST
     function displayInput() {
         document.getElementById('add-list-text-container').style.display = 'none'
-        document.getElementById('add-list-div').style.display = 'block'
+        document.getElementById('add-list-details').style.display = 'block'
         document.getElementById('add-list-input').focus()
     }
 
     function hideInput() {
         document.getElementById('add-list-text-container').style.display = 'block'
-        document.getElementById('add-list-div').style.display = 'none'
+        document.getElementById('add-list-details').style.display = 'none'
     }
 
     function addList() {
@@ -101,25 +101,29 @@ export default function SingleBoard() {
                         <div id='add-list-text-container' onClick={displayInput}>
                             <span id='add-list-text'>＋Add a list</span>
                         </div>
-                        <div id="add-list-div"
+                        <div id="add-list-details"
                             style={{ display: 'none' }}
                             onBlur={hideInput}
                         >
-                            <input
-                                id="add-list-input"
-                                type="text"
-                                placeholder="Enter list title..."
-                                value={listTitle}
-                                onChange={e => setListTitle(e.target.value)}
-                            >
-                            </input>
-                            <button
-                                id='add-list-btn'
-                                onMouseDown={addList}
-                                disabled={!listTitle}
-                            >
-                                Add List
-                            </button>
+                            <div id="list-input-container">
+                                <input
+                                    id="add-list-input"
+                                    type="text"
+                                    placeholder="Enter list title..."
+                                    value={listTitle}
+                                    onChange={e => setListTitle(e.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div id="list-btn-container">
+                                <button
+                                    id='add-list-btn'
+                                    onMouseDown={addList}
+                                    disabled={!listTitle}
+                                >
+                                    Add List
+                                </button>
+                            </div>
                         </div>
                     </li>
                 </ul>
