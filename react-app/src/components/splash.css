@@ -93,7 +93,10 @@
     cursor: pointer;
 }
 
+
 #img-2 {
     width: 1230px;
-    margin-right: 135px;
+    text-align: center;
+    margin-right: 130px;
+    /* margin-left: 255px; */
 }

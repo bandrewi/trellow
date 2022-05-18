@@ -1,0 +1,17 @@
+#card-container {
+    width: 256px;
+    margin: 0px 4px;
+    padding: 0px 4px;
+}
+
+.card-li {
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 6px 8px 2px;
+}
+
+.card-title {
+    font-size: 17px;
+    outline-color: #026AA7;
+}

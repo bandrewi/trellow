@@ -1,9 +1,16 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './splash.css'
 
 export default function SplashPage() {
     // const body = document.querySelector('body')
     // body.style.backgroundColor = '#eae6ff'
+
+
+    useEffect(() => {
+        const root = document.getElementById('root')
+        root.style.removeProperty('width')
+    })
 
     return (
         <>
@@ -39,9 +46,9 @@ export default function SplashPage() {
                                 <button id='start-doing'>Start doing →</button>
                             </Link>
                         </div>
-                        <div id='img-1-container'>
-                            <img id='img-2' src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png' />
-                        </div>
+                    </div>
+                    <div id='img-2-container'>
+                        <img id='img-2' src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png' />
                     </div>
                 </div>
             </section>

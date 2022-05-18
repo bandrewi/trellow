@@ -1,9 +1,12 @@
 /* USER */
 #user-navbar {
+    position: sticky;
+    left: 0px;
     background-color: #026AA7;
     height: 44px;
     justify-content: space-between;
     align-items: center;
+    width: 100vw;
 }
 
 #user-left {
@@ -21,12 +24,13 @@
 
 /* NONUSER */
 #nonuser-navbar {
-    /* position: sticky; */
+    position: sticky;
     top: 0px;
     font-family: sans-serif;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
+    /* width: 98%; */
 }
 
 #nonuser-right {
