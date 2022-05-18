@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { fetchBoards } from '../../store/board';
 import { fetchCards } from '../../store/card';
 import { fetchLists } from '../../store/list';
 import { login } from '../../store/session';
+
+import './login.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -47,35 +49,54 @@ const LoginForm = () => {
 
   return (
     <>
-      <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+      <div id='login-trellow-logo-container'>
+        <img id='login-trellow-logo' src='https://i.imgur.com/yaeqUuy.png' alt='Trellow' />
+      </div>
+      <div id='login-container'>
+        <form id='login-form' onSubmit={onLogin}>
+          <h1 id='login-header'>Log in to Trellow</h1>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+            {/* <label htmlFor='email'>Email</label> */}
+            <input
+              id='login-email'
+              name='email'
+              type='text'
+              placeholder='Enter email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            {/* <label htmlFor='password'>Password</label> */}
+            <input
+              id='login-password'
+              name='password'
+              type='password'
+              placeholder='Enter password'
+              value={password}
+              onChange={updatePassword}
+            />
+          </div>
+          <button id='form-login-btn' type='submit'>Log in</button>
+          <div id='or-separator'>OR</div>
+          <button id='demo-btn' onClick={demoLogin}>Continue as a demo user</button>
+          <div id='separator' />
+          <Link id='login-form-sign-up' to='/sign-up'>Sign up for an account </Link>
+        </form>
+      </div>
+      <div id='login-img-container'>
+        <div id='login-img-1-container'>
+          <img src='https://i.imgur.com/AA8OHXu.png' alt='' />
         </div>
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input
-            name='email'
-            type='text'
-            placeholder='Email'
-            value={email}
-            onChange={updateEmail}
-          />
+        <div id='login-img-2-container'>
+          <img src='https://i.imgur.com/jK6fFIJ.png' alt='' />
         </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            name='password'
-            type='password'
-            placeholder='Password'
-            value={password}
-            onChange={updatePassword}
-          />
-          <button type='submit'>Login</button>
-        </div>
-      </form>
-      <button type='submit' onClick={demoLogin}>Demo Login</button>
+      </div>
     </>
   );
 };

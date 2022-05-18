@@ -1,0 +1,154 @@
+#login-trellow-logo-container {
+    text-align: center;
+    background-color: #F9FAFC;
+}
+
+
+#login-trellow-logo {
+    height: 50px;
+    margin: 37px 0px 18px;
+}
+
+#login-container>* {
+    box-sizing: border-box;
+}
+
+#login-container {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 630px;
+    background-color: #F9FAFC;
+}
+
+
+/* LOGIN FORM */
+#login-form>*>* {
+    box-sizing: border-box;
+}
+
+#login-form {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 590px; */
+    height: 455px;
+    width: 400px;
+    padding: 25px 40px;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 10%) 0 0 10px;
+    border: transparent;
+}
+
+#login-header {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    margin: 10px 0px 25px;
+    color: #5e6c84;
+}
+
+#login-email {
+    width: 320px;
+    height: 44px;
+    padding: 7px;
+    margin: 0px 0px 17px;
+    background-color: #fafbfc;
+    border: 2px solid #dfe1e6;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+#login-password {
+    width: 320px;
+    height: 44px;
+    padding: 7px;
+    margin: 0px 0px 17px;
+    background-color: #fafbfc;
+    border: 2px solid #dfe1e6;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+/* LOGIN BUTTON */
+#form-login-btn {
+    height: 35px;
+    width: 320px;
+    color: white;
+    background-color: #5aac44;
+    padding: 8px 18px;
+    border-radius: 3px;
+    border: transparent;
+    font-weight: bold;
+}
+
+#form-login-btn:hover {
+    cursor: pointer;
+    background-color: #61BD4F;
+}
+
+#or-separator {
+    margin: 16px 0px 14px;
+    height: 24px;
+    color: #4d4d4d;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* DEMO BUTTON */
+#demo-btn {
+    width: 320px;
+    height: 39px;
+    margin: 0px 0px 12px;
+    font-weight: bold;
+    box-shadow: rgb(0 0 0 / 20%) 1px 1px 5px 0;
+    border: transparent;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.54);
+    ;
+}
+
+#demo-btn:hover {
+    cursor: pointer;
+    background-color: #F9FAFC;
+
+}
+
+/* SEPARATOR */
+#separator {
+    border-top: 1px solid hsl(0, 0%, 80%);
+    width: 317px;
+    margin: 25px 0px 14px;
+}
+
+#login-form-sign-up {
+    text-decoration: none;
+    color: #0052CC;
+    font-size: 14px;
+}
+
+#login-form-sign-up:hover {
+    text-decoration: underline;
+}
+
+/* IMAGE CONTAINER */
+#login-img-container {
+    height: 211px;
+    background-color: #F9FAFC;
+}
+
+#login-img-1-container {
+    /* border: 1px solid red; */
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+
+#login-img-2-container {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
