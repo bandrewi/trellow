@@ -4,7 +4,13 @@ export default function Board({ board }) {
 
     return (
         <>
-            <Link to={`/boards/${board.id}`}>{board.title}</Link>
+            <div id="board-link">
+                <Link to={`/boards/${board.id}`}>
+                    <div id="clickable-div">
+                        {board.title}
+                    </div>
+                </Link>
+            </div>
         </>
 
     )
