@@ -48,24 +48,26 @@ export default function List({ list }) {
 
     return (
         <>
-            <h2
-                id={`list-title-${list.id}`}
-                contentEditable='true'
-                onBlur={handleEdit}
-            >
-                {list.title}
-            </h2>
-            <button onClick={handleDelete}>Delete</button>
-            <ul>
+            <div id="list-title-container" className="flex-row">
+                <h2
+                    id={`list-title-${list.id}`}
+                    className='list-title'
+                    contentEditable='true'
+                    onBlur={handleEdit}
+                >
+                    {list.title}
+                </h2>
+                <div id='list-delete-btn' onClick={handleDelete}>ⓧ</div>
+            </div>
+            <ul id="card-container">
                 {list.cards.map(card => (
-                    <li key={card.id}>
+                    <li key={card.id} className='card-li'>
                         <Card card={card} />
                     </li>
                 ))}
-                <li>
+                <li id="add-card-container">
                     <div id={`add-card-${list.id}`} onClick={displayInput}>
-                        <span>+</span>
-                        <span>Add a card</span>
+                        <span id="add-card-text">＋Add a card</span>
                     </div>
                     <div id={`add-card-div-${list.id}`}
                         style={{ display: 'none' }}

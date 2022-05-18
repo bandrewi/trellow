@@ -1,0 +1,31 @@
+#list-title-container {
+    margin: 2px 4px 0px;
+    padding: 0px 4px;
+    justify-content: space-between;
+}
+
+.list-title {
+    font-size: 17px;
+    color: #172b4d;
+    margin: 5px 0px 5px 3px;
+    flex-grow: 1;
+    padding: 0px 5px 0px;
+    outline-color: #026AA7;
+}
+
+#list-delete-btn {
+    font-size: 20px;
+}
+
+#list-delete-btn:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#add-card-container {
+    margin: 2px 0px 10px 5px;
+}
+
+#add-card-text {
+    font-size: 15px;
+}
