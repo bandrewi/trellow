@@ -15,11 +15,17 @@ export default function List({ list }) {
         document.getElementById(`add-card-${list.id}`).style.display = 'none'
         document.getElementById(`add-card-div-${list.id}`).style.display = 'block'
         document.getElementById(`add-card-input-${list.id}`).focus()
+        const addCardContainer = document.getElementsByClassName('add-card-container')[0]
+        addCardContainer.classList.remove('add-card-container')
+        addCardContainer.classList.add('add-card-container-hover')
     }
 
     function hideInput() {
         document.getElementById(`add-card-${list.id}`).style.display = 'block'
         document.getElementById(`add-card-div-${list.id}`).style.display = 'none'
+        const addCardContainer = document.getElementsByClassName('add-card-container-hover')[0]
+        addCardContainer.classList.remove('add-card-container-hover')
+        addCardContainer.classList.add('add-card-container')
     }
 
     function addCard() {
@@ -65,8 +71,12 @@ export default function List({ list }) {
                         <Card card={card} />
                     </li>
                 ))}
-                <li id="add-card-container">
-                    <div id={`add-card-${list.id}`} onClick={displayInput}>
+                <li className="add-card-container">
+                    <div
+                        id={`add-card-${list.id}`}
+                        className='add-card-text-container'
+                        onClick={displayInput}
+                    >
                         <span id="add-card-text">＋Add a card</span>
                     </div>
                     <div id={`add-card-div-${list.id}`}
@@ -75,19 +85,22 @@ export default function List({ list }) {
                     >
                         <input
                             id={`add-card-input-${list.id}`}
+                            className='add-card-input'
                             type="text"
-                            placeholder="Enter a list title..."
+                            placeholder="Enter a title for this card..."
                             value={cardTitle}
                             onChange={e => setCardTitle(e.target.value)}
                         >
                         </input>
-                        <button
-                            id='add-card-btn'
-                            onMouseDown={addCard}
-                            disabled={!cardTitle}
-                        >
-                            Add Card
-                        </button>
+                        <div>
+                            <button
+                                id='add-card-btn'
+                                onMouseDown={addCard}
+                                disabled={!cardTitle}
+                            >
+                                Add Card
+                            </button>
+                        </div>
                     </div>
                 </li>
             </ul>
