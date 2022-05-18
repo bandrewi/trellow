@@ -11,21 +11,30 @@ export default function List({ list }) {
     const [cardTitle, setCardTitle] = useState('')
 
     // ADD CARD DISPLAY
-    function displayInput() {
+    function displayInput(e) {
         document.getElementById(`add-card-${list.id}`).style.display = 'none'
         document.getElementById(`add-card-div-${list.id}`).style.display = 'block'
         document.getElementById(`add-card-input-${list.id}`).focus()
-        const addCardContainer = document.getElementsByClassName('add-card-container')[0]
+        const addCardContainerElements = Array.from(document.getElementsByClassName('add-card-container'))
+        const addCardContainer = addCardContainerElements.find(el => el.id.split('-').pop() === e.target.id.split('-').pop())
+        // console.log('----------el', addCardContainerElements)
+        // console.log('----------', addCardContainer)
+        // console.log('----------e', e.target.id.split('-').pop())
         addCardContainer.classList.remove('add-card-container')
-        addCardContainer.classList.add('add-card-container-hover')
+        addCardContainer.classList.add('add-card-container-input')
     }
 
-    function hideInput() {
+    function hideInput(e) {
         document.getElementById(`add-card-${list.id}`).style.display = 'block'
         document.getElementById(`add-card-div-${list.id}`).style.display = 'none'
-        const addCardContainer = document.getElementsByClassName('add-card-container-hover')[0]
-        addCardContainer.classList.remove('add-card-container-hover')
-        addCardContainer.classList.add('add-card-container')
+        const addCardContainer = document.getElementsByClassName('add-card-container-input')[0]
+        // const addCardContainerElements = Array.from(document.getElementsByClassName('add-card-container-input'))
+        // const addCardContainer = addCardContainerElements.find(el => el.id.split('-').pop() === e.target.id.split('-').pop())
+        // console.log('----------el', addCardContainerElements)
+        // console.log('----------', addCardContainer)
+        // console.log('----------e', e.target.id.split('-').pop())
+        addCardContainer?.classList.remove('add-card-container-input')
+        addCardContainer?.classList.add('add-card-container')
     }
 
     function addCard() {
@@ -71,13 +80,13 @@ export default function List({ list }) {
                         <Card card={card} />
                     </li>
                 ))}
-                <li className="add-card-container">
+                <li id={`add-card-container-${list.id}`} className="add-card-container">
                     <div
                         id={`add-card-${list.id}`}
                         className='add-card-text-container'
                         onClick={displayInput}
                     >
-                        <span id="add-card-text">＋Add a card</span>
+                        <span id={`add-card-text-${list.id}`}>＋Add a card</span>
                     </div>
                     <div id={`add-card-div-${list.id}`}
                         style={{ display: 'none' }}
