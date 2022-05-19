@@ -29,6 +29,7 @@ export default function SplashPage() {
                                 From high rises to the home office, the way your team works is unique—accomplish it all with Trellow.
                             </p>
                             <input
+                                id='splash-email'
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
                                 placeholder='Email'
