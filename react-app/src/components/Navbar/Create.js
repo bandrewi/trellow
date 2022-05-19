@@ -34,15 +34,14 @@ export default function Create() {
     return (
         <>
             <form onSubmit={handleCreate}>
-                <label> Board title
-                    <span>*</span>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={e => setTitle(e.target.value)}
-                    >
-                    </input>
+                <label className="required"> Board title
                 </label>
+                <input
+                    type="text"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                >
+                </input>
                 <button id="create-btn" disabled={!title}>Create</button>
             </form>
             {/* CODE TO IMPLEMENT WHEN WORKPLACE OR TEMPLATES HAVE BEEN MADE */}
