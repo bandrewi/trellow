@@ -8,6 +8,28 @@ import './navbar.css'
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
 
+  // CHANGES CLASS OF NAVBAR AFTER SCROLLING PAST IT
+  function changeNav() {
+    if (window.scrollY > 70) {
+      const navBar = document.getElementById('nonuser-navbar')
+      navBar.classList.add('scrolled')
+      document.removeEventListener('scroll', changeNav)
+      document.addEventListener('scroll', changeNavBack)
+    }
+  }
+  document.addEventListener('scroll', changeNav)
+
+  // CHANGES CLASS OF NAVBAR BACK AFTER SCROLLING TO ITS ORIGINAL POSITION
+  function changeNavBack() {
+    if (window.scrollY < 70) {
+      const navBar = document.getElementById('nonuser-navbar')
+      navBar.classList.remove('scrolled')
+      document.removeEventListener('scroll', changeNavBack)
+      document.addEventListener('scroll', changeNav)
+    }
+  }
+
+
   return (
     <>
       {user ? (

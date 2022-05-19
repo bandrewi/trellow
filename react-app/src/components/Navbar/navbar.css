@@ -31,7 +31,21 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px;
+    background-color: #eae6ff;
+    transition: background-color 1s ease 0s;
     /* width: 98%; */
+}
+
+#nonuser-navbar.scrolled {
+    position: sticky;
+    top: 0px;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    transition: background-color 1s ease 0s;
 }
 
 #nonuser-right {
