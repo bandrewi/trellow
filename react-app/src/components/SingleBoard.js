@@ -11,25 +11,29 @@ export default function SingleBoard() {
     const dispatch = useDispatch()
     const [listTitle, setListTitle] = useState('')
     const boards = useSelector(state => state.boards)
-    // const lists = useSelector(state => state.lists)
     const { id } = useParams()
     const board = boards[id]
 
     // const body = document.querySelector('body')
     // body.style.backgroundColor = '#ffffff'
+
+    // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
+    useEffect(() => {
+        if (board.lists.length === 6) {
+            const root = document.getElementById('root')
+            root.style.width = 'fit-content'
+        }
+    })
+
+    // PREVIOUS METHOD
     // useEffect(() => {
     //     const listUl = document.getElementById('list-ul')
-    //     console.log('SCROLL WIDTH', listUl.scrollWidth)
-    //     console.log('CLIENT WIDTH', listUl.clientWidth)
+    //     const root = document.getElementById('root')
+    //     root.style.width = listUl?.scrollWidth > listUl?.clientWidth && 'fit-content'
+    //     // console.log('SCROLL WIDTH', listUl.scrollWidth)
+    //     // console.log('CLIENT WIDTH', listUl.clientWidth)
+    //     // if (listUl?.scrollWidth > listUl?.clientWidth) console.log('SCROLL')
     // })
-    useEffect(() => {
-        const listUl = document.getElementById('list-ul')
-        const root = document.getElementById('root')
-        root.style.width = listUl.scrollWidth > listUl.clientWidth && 'fit-content'
-        // console.log('SCROLL WIDTH', listUl.scrollWidth)
-        // console.log('CLIENT WIDTH', listUl.clientWidth)
-        if (listUl.scrollWidth > listUl.clientWidth) console.log('SCROLL')
-    })
 
 
     if (!board) {

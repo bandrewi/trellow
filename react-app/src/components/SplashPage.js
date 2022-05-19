@@ -6,7 +6,7 @@ export default function SplashPage() {
     // const body = document.querySelector('body')
     // body.style.backgroundColor = '#eae6ff'
 
-
+    // REMOVES THE WIDTH PROPERTY OF ROOT SO THAT IT DOESNT AFFECT CSS IN OTHER PAGES
     useEffect(() => {
         const root = document.getElementById('root')
         root.style.removeProperty('width')
@@ -14,7 +14,7 @@ export default function SplashPage() {
 
     return (
         <>
-            <section>
+            <section id='hero'>
                 <div id='big-container-1'>
                     <div id='container-1' className='flex-row'>
                         <div id='container-1-text'>
@@ -48,7 +48,7 @@ export default function SplashPage() {
                         </div>
                     </div>
                     <div id='img-2-container'>
-                        <img id='img-2' src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png' />
+                        <img id='img-2' src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png' alt='' />
                     </div>
                 </div>
             </section>

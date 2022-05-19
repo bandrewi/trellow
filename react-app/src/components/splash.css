@@ -1,4 +1,10 @@
 /* SECTION 1 */
+
+#hero {
+    /* background-color: #eae6ff; */
+    background: linear-gradient(0deg, rgb(255, 255, 255), rgb(234, 230, 255) 100%);
+}
+
 #img-1 {
     width: 445px;
     margin: 0px 95px;
@@ -18,10 +24,6 @@
 #container-1-text {
     padding: 0px 15px 0px 50px;
     margin-bottom: 25px;
-}
-
-#container-1-text>* {
-    font-family: sans-serif;
 }
 
 #container-1-heading {
@@ -60,10 +62,6 @@
 #text-offset {
     margin: 0px 160px 0px 0px;
     padding: 0px 410px;
-}
-
-#container-2-text>* {
-    font-family: sans-serif;
 }
 
 #container-2-heading {
