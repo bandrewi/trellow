@@ -22,6 +22,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['Passwords must match'])
     }
   };
 
@@ -135,7 +137,7 @@ const SignUpForm = () => {
           <button
             id='form-signup-btn'
             type='submit'
-          // disabled={allFieldsFilled()}
+            disabled={allFieldsFilled()}
           >
             Sign Up
           </button>
