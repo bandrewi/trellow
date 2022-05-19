@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -12,8 +12,22 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [redirected, setRedirected] = useState(true)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  // Gets email from cookie and sets email input value to it
+  const cookie = document.cookie
+  const cookieEmail = cookie.split('=')[1]
+
+  useEffect(() => {
+    if (cookieEmail && redirected) {
+      setEmail(cookieEmail)
+      document.cookie = 'email='
+    }
+    setRedirected(false)
+  })
+  // --------------------------------------------
 
   const onSignUp = async (e) => {
     e.preventDefault();
