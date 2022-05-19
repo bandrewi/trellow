@@ -19,7 +19,7 @@ export default function SingleBoard() {
 
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
-        if (board.lists.length === 6) {
+        if (board?.lists.length === 6) {
             const root = document.getElementById('root')
             root.style.width = 'fit-content'
         }
