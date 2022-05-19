@@ -11,17 +11,11 @@ export default function SingleBoard() {
     const dispatch = useDispatch()
     const [listTitle, setListTitle] = useState('')
     const boards = useSelector(state => state.boards)
-    // const lists = useSelector(state => state.lists)
     const { id } = useParams()
     const board = boards[id]
 
     // const body = document.querySelector('body')
     // body.style.backgroundColor = '#ffffff'
-    // useEffect(() => {
-    //     const listUl = document.getElementById('list-ul')
-    //     console.log('SCROLL WIDTH', listUl.scrollWidth)
-    //     console.log('CLIENT WIDTH', listUl.clientWidth)
-    // })
 
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
