@@ -14,3 +14,7 @@ ul {
 .flex-row {
     display: flex;
 }
+
+:root {
+    --input-outline-color: #4C9AFF
+}
