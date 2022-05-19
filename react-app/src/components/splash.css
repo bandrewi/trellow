@@ -26,10 +26,6 @@
     margin-bottom: 25px;
 }
 
-#container-1-text>* {
-    font-family: sans-serif;
-}
-
 #container-1-heading {
     font-size: 48px;
     margin: 0px 0px 10px;
@@ -66,10 +62,6 @@
 #text-offset {
     margin: 0px 160px 0px 0px;
     padding: 0px 410px;
-}
-
-#container-2-text>* {
-    font-family: sans-serif;
 }
 
 #container-2-heading {
