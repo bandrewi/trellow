@@ -9,7 +9,7 @@ import { login } from '../../store/session';
 import './login.css'
 
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -19,7 +19,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(['Email or password is incorrrect']);
+      setError('Email or password is incorrrect');
     } else {
       await dispatch(fetchBoards());
       await dispatch(fetchLists());
@@ -56,12 +56,10 @@ const LoginForm = () => {
       </div>
       <div id='login-container'>
         <form id='login-form' onSubmit={onLogin}>
-          <h1 id='login-header'>Log in to Trellow</h1>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
+          <div id='login-error'>
+            {error}
           </div>
+          <h1 id='login-header'>Log in to Trellow</h1>
           <div>
             {/* <label htmlFor='email'>Email</label> */}
             <input
