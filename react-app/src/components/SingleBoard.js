@@ -19,7 +19,7 @@ export default function SingleBoard() {
 
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
-        if (board?.lists.length === 6) {
+        if (board?.lists.length >= 6) {
             const root = document.getElementById('root')
             root.style.width = 'fit-content'
         }
@@ -79,7 +79,6 @@ export default function SingleBoard() {
         e.preventDefault()
 
         dispatch(deleteBoard(id))
-        return <Redirect to='/' />;
     }
 
     return (
@@ -98,7 +97,7 @@ export default function SingleBoard() {
             <div id="list-container">
                 <ul id="list-ul" className="flex-row">
                     {board.lists.map(list => (
-                        <li key={list.id} className='list-li'>
+                        <li key={list.id} className='list-li list'>
                             <List list={list} />
                         </li>
                     ))}
