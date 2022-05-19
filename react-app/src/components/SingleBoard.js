@@ -84,7 +84,7 @@ export default function SingleBoard() {
 
     return (
         <>
-            <div id="board-dash">
+            <div id="board-dash" className="flex-row">
                 <h1
                     id='board-title'
                     contentEditable='true'
@@ -92,7 +92,8 @@ export default function SingleBoard() {
                 >
                     {board.title}
                 </h1>
-                <button onClick={handleDelete}>Delete</button>
+                <div id="board-separator" />
+                <button id='board-delete-btn' onClick={handleDelete}>Delete</button>
             </div>
             <div id="list-container">
                 <ul id="list-ul" className="flex-row">
