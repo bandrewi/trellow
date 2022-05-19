@@ -22,14 +22,24 @@ export default function SingleBoard() {
     //     console.log('SCROLL WIDTH', listUl.scrollWidth)
     //     console.log('CLIENT WIDTH', listUl.clientWidth)
     // })
+
+    // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
-        const listUl = document.getElementById('list-ul')
-        const root = document.getElementById('root')
-        root.style.width = listUl?.scrollWidth > listUl?.clientWidth && 'fit-content'
-        // console.log('SCROLL WIDTH', listUl.scrollWidth)
-        // console.log('CLIENT WIDTH', listUl.clientWidth)
-        // if (listUl?.scrollWidth > listUl?.clientWidth) console.log('SCROLL')
+        if (board.lists.length === 6) {
+            const root = document.getElementById('root')
+            root.style.width = 'fit-content'
+        }
     })
+
+    // PREVIOUS METHOD
+    // useEffect(() => {
+    //     const listUl = document.getElementById('list-ul')
+    //     const root = document.getElementById('root')
+    //     root.style.width = listUl?.scrollWidth > listUl?.clientWidth && 'fit-content'
+    //     // console.log('SCROLL WIDTH', listUl.scrollWidth)
+    //     // console.log('CLIENT WIDTH', listUl.clientWidth)
+    //     // if (listUl?.scrollWidth > listUl?.clientWidth) console.log('SCROLL')
+    // })
 
 
     if (!board) {
