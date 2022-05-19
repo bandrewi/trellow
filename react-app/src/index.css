@@ -15,6 +15,11 @@ ul {
     display: flex;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 :root {
     --input-outline-color: #4C9AFF
 }
