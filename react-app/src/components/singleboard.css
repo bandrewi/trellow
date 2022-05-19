@@ -27,12 +27,16 @@
     /* flex-wrap: nowrap; */
     margin: 0px 0px 8px;
     padding: 0px 0px 8px 16px;
+    align-items: flex-start;
+}
+
+.list {
+    border: 1px solid black;
 }
 
 .list-li {
     width: 272px;
     margin: 10px;
-    /* border: 1px solid black; */
     background-color: #EBECF0;
     border-radius: 5px;
 }
