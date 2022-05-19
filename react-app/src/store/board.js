@@ -44,6 +44,7 @@ export const createBoard = (title) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(addBoard(data))
+        return data
     } else if (res.status < 500) {
         const data = await res.json()
         if (data.errors) {
