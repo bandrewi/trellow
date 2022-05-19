@@ -1,4 +1,10 @@
 /* SECTION 1 */
+
+#hero {
+    /* background-color: #eae6ff; */
+    background: linear-gradient(0deg, rgb(255, 255, 255), rgb(234, 230, 255) 100%);
+}
+
 #img-1 {
     width: 445px;
     margin: 0px 95px;
