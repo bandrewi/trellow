@@ -79,8 +79,8 @@ const SignUpForm = () => {
             ))}
           </div>
           <h1 id='signup-header'>Sign up for your account</h1>
-          <div>
-            {/* <label>First Name</label> */}
+          <div className='flex-column' >
+            <label className='required'>First Name</label>
             <input
               className='signup-input'
               type='text'
@@ -90,8 +90,8 @@ const SignUpForm = () => {
               value={firstName}
             ></input>
           </div>
-          <div>
-            {/* <label>Last Name</label> */}
+          <div className='flex-column'>
+            <label className='required'>Last Name</label>
             <input
               className='signup-input'
               type='text'
@@ -101,8 +101,8 @@ const SignUpForm = () => {
               value={lastName}
             ></input>
           </div>
-          <div>
-            {/* <label>Email</label> */}
+          <div className='flex-column'>
+            <label className='required'>Email</label>
             <input
               className='signup-input'
               type='text'
@@ -112,8 +112,8 @@ const SignUpForm = () => {
               value={email}
             ></input>
           </div>
-          <div>
-            {/* <label>Password</label> */}
+          <div className='flex-column'>
+            <label className='required'>Password</label>
             <input
               className='signup-input'
               type='password'
@@ -123,8 +123,8 @@ const SignUpForm = () => {
               value={password}
             ></input>
           </div>
-          <div>
-            {/* <label>Confirm Password</label> */}
+          <div className='flex-column'>
+            <label className='required'>Confirm Password</label>
             <input
               className='signup-input'
               type='password'
