@@ -46,7 +46,6 @@
 
 #login-error {
     color: red;
-    font-size: 14px;
 }
 
 #login-header {
@@ -55,18 +54,19 @@
     color: #5e6c84;
 }
 
-#login-email {
+.login-input {
     width: 320px;
     height: 44px;
     padding: 7px;
     margin: 0px 0px 17px;
     background-color: #fafbfc;
     border: 2px solid #dfe1e6;
+    outline-color: var(--input-outline-color);
     font-size: 14px;
     border-radius: 3px;
 }
 
-#login-password {
+/* #login-password {
     width: 320px;
     height: 44px;
     padding: 7px;
@@ -75,7 +75,7 @@
     border: 2px solid #dfe1e6;
     font-size: 14px;
     border-radius: 3px;
-}
+} */
 
 /* LOGIN BUTTON */
 #form-login-btn {

@@ -19,7 +19,7 @@ export default function SingleBoard() {
 
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
-        if (board.lists.length === 6) {
+        if (board?.lists.length >= 6) {
             const root = document.getElementById('root')
             root.style.width = 'fit-content'
         }
@@ -79,12 +79,11 @@ export default function SingleBoard() {
         e.preventDefault()
 
         dispatch(deleteBoard(id))
-        return <Redirect to='/' />;
     }
 
     return (
         <>
-            <div id="board-dash">
+            <div id="board-dash" className="flex-row">
                 <h1
                     id='board-title'
                     contentEditable='true'
@@ -92,12 +91,13 @@ export default function SingleBoard() {
                 >
                     {board.title}
                 </h1>
-                <button onClick={handleDelete}>Delete</button>
+                <div id="board-separator" />
+                <button id='board-delete-btn' onClick={handleDelete}>Delete</button>
             </div>
             <div id="list-container">
                 <ul id="list-ul" className="flex-row">
                     {board.lists.map(list => (
-                        <li key={list.id} className='list-li'>
+                        <li key={list.id} className='list-li list'>
                             <List list={list} />
                         </li>
                     ))}

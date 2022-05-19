@@ -51,7 +51,8 @@
 
 /* ADD CARD FORM */
 .add-card-input {
-    outline-color: transparent;
+    /* outline-color: transparent; */
+    outline-color: #026AA7;
     padding: 3px 5px 3px 3px;
     margin-bottom: 10px;
     width: 243px;

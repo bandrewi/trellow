@@ -2,18 +2,42 @@
     position: sticky;
     left: 0px;
     width: 100vw;
+    align-items: center;
+}
+
+#board-title {
+    padding: 0px 10px;
+}
+
+#board-title:hover {
+    cursor: pointer;
+}
+
+#board-separator {
+    height: 20px;
+    margin: 3px 20px 0px;
+    border-right: 2px solid gray;
+}
+
+#board-delete-btn {
+    padding: 2px 4px;
 }
 
 #list-ul {
     /* flex-wrap: nowrap; */
     margin: 0px 0px 8px;
     padding: 0px 0px 8px 16px;
+    /* the lists are placed at the top so dont take whole height of parent container */
+    align-items: flex-start;
+}
+
+.list {
+    border: 1px solid black;
 }
 
 .list-li {
     width: 272px;
     margin: 10px;
-    /* border: 1px solid black; */
     background-color: #EBECF0;
     border-radius: 5px;
 }
