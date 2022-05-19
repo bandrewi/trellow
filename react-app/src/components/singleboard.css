@@ -27,6 +27,7 @@
     /* flex-wrap: nowrap; */
     margin: 0px 0px 8px;
     padding: 0px 0px 8px 16px;
+    /* the lists are placed at the top so dont take whole height of parent container */
     align-items: flex-start;
 }
 
