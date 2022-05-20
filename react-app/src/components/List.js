@@ -1,14 +1,18 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
+import TextareaAutosize from 'react-textarea-autosize';
 
 import { createCard } from "../store/card"
 import { deleteList, editList } from "../store/list"
 import Card from "./Card"
 import './list.css'
 
+
+
 export default function List({ list }) {
     const dispatch = useDispatch()
     const [cardTitle, setCardTitle] = useState('')
+    const [listTitle, setListTitle] = useState(list.title)
 
     // ADD CARD DISPLAY
     function displayInput(e) {
@@ -43,6 +47,18 @@ export default function List({ list }) {
         setCardTitle('')
     }
 
+    // DISPLAY LIST TITLE INPUT
+    function displayListInput(e) {
+        e.target.style.display = 'none'
+        document.getElementById(`list-title-input-${list.id}`).style.display = 'block'
+        document.getElementById(`list-title-input-${list.id}`).select()
+    }
+
+    function hideListInput(e) {
+        e.target.style.display = 'none'
+        document.getElementById(`list-title-${list.id}`).style.display = 'block'
+    }
+
     // LIST FUNCTIONS
     function handleDelete() {
         dispatch(deleteList(list.id, list.board_id))
@@ -50,7 +66,6 @@ export default function List({ list }) {
 
     const handleEdit = (e) => {
         // CHANGE ORDER BASED ON DRAG DROP
-        const listTitle = e.target.innerText
         if (listTitle === '') {
             e.target.innerText = list.title
             return
@@ -60,18 +75,41 @@ export default function List({ list }) {
         }
         return
     }
-
+    // const handleEdit = (e) => {
+    //     // CHANGE ORDER BASED ON DRAG DROP
+    //     const listTitle = e.target.innerText
+    //     if (listTitle === '') {
+    //         e.target.innerText = list.title
+    //         return
+    //     }
+    //     if (list.title !== listTitle) {
+    //         dispatch(editList(list.id, list.order, listTitle))
+    //     }
+    //     return
+    // }
+    // console.log('TITLE', listTitle)
     return (
         <>
             <div id="list-title-container" className="flex-row">
                 <h2
                     id={`list-title-${list.id}`}
                     className='list-title'
-                    contentEditable='true'
-                    onBlur={handleEdit}
+                    onClick={displayListInput}
                 >
                     {list.title}
                 </h2>
+                <TextareaAutosize
+                    id={`list-title-input-${list.id}`}
+                    className="list-title"
+                    value={listTitle}
+                    onChange={e => setListTitle(e.target.value)}
+                    maxLength='255'
+                    onBlur={hideListInput}
+                    style={{
+                        resize: 'none',
+                        display: 'none'
+                    }}
+                />
                 <div id='list-delete-btn' onClick={handleDelete}>ⓧ</div>
             </div>
             <ul id="card-container">
