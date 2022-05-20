@@ -50,7 +50,16 @@ export default function List({ list }) {
     const handleEdit = (e) => {
         // CHANGE ORDER BASED ON DRAG DROP
         const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
-        if (listTitle.trim() === '' || listTitle.length === 255) {
+
+        if (listTitle.trim() === '') {
+            setListTitle(list.title)
+            e.target.style.display = 'none'
+            document.getElementById(`list-title-${list.id}`).style.display = 'block'
+            document.getElementById('list-empty-error').style.display = 'none'
+            return
+        }
+
+        if (listTitle.length === 255) {
             listTitleInput.focus()
             return
         }
