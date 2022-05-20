@@ -50,11 +50,12 @@ export default function List({ list }) {
     const handleEdit = (e) => {
         // CHANGE ORDER BASED ON DRAG DROP
         const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
+        const listTitleEl = document.getElementById(`list-title-${list.id}`)
 
         if (listTitle.trim() === '') {
             setListTitle(list.title)
-            e.target.style.display = 'none'
-            document.getElementById(`list-title-${list.id}`).style.display = 'block'
+            listTitleInput.style.display = 'none'
+            listTitleEl.style.display = 'block'
             document.getElementById(`list-empty-error-${list.id}`).style.display = 'none'
             return
         }
@@ -64,8 +65,8 @@ export default function List({ list }) {
             return
         }
 
-        e.target.style.display = 'none'
-        document.getElementById(`list-title-${list.id}`).style.display = 'block'
+        listTitleInput.style.display = 'none'
+        listTitleEl.style.display = 'block'
 
         if (list.title !== listTitle) {
             dispatch(editList(list.id, list.order, listTitle))
@@ -121,6 +122,7 @@ export default function List({ list }) {
                     // METHOD TO RUN TWO FUNCTIONS ON ONE EVENT LISTENER
                     // onBlur={(e) => { hideListInput(e); handleEdit(e); }}
                     onBlur={handleEdit}
+                    onKeyDown={e => e.key === 'Enter' && handleEdit()}
                     style={{
                         resize: 'none',
                         display: 'none'

@@ -1,5 +1,5 @@
 #card-container {
-    width: 256px;
+    width: 284px;
     margin: 0px 4px;
     padding: 0px 4px;
 }
@@ -22,7 +22,7 @@
     outline-color: #026AA7;
     flex-grow: 1;
     padding: 0px 0px 0px 5px;
-    margin: 0px 2px 0px 0px;
+    margin: 0px 5px 4px 0px;
     overflow-wrap: break-word;
     overflow: hidden;
 }

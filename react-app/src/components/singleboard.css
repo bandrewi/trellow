@@ -1,3 +1,11 @@
+/* #board-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: -1;
+} */
+
 #board-dash {
     position: sticky;
     padding-top: 3px;
@@ -5,7 +13,7 @@
     left: 0px;
     width: 100vw;
     align-items: center;
-    background-color: #026ba757;
+    background-color: #026ba7b2;
 }
 
 #spacing {
@@ -69,6 +77,7 @@
     padding: 0px 0px 8px 16px;
     /* the lists are placed at the top so dont take whole height of parent container */
     align-items: flex-start;
+    /* max-height: 820px; */
 }
 
 .list {
@@ -76,7 +85,7 @@
 }
 
 .list-li {
-    width: 272px;
+    width: 300px;
     margin: 10px;
     background-color: #EBECF0;
     border-radius: 5px;
@@ -124,7 +133,7 @@
     outline-color: #026AA7;
     padding: 3px 18px 3px 3px;
     margin-bottom: 7px;
-    width: 230px;
+    width: 255px;
     height: 20px;
 }
 
