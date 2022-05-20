@@ -14,6 +14,7 @@ export default function List({ list }) {
     const [cardTitle, setCardTitle] = useState('')
     const [listTitle, setListTitle] = useState(list.title)
 
+    //-------------------------- LIST FUNCTIONS ----------------------------
     //ERROR HANDLING FOR LIST TITLE EDIT
     useEffect(() => {
         const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
@@ -33,6 +34,38 @@ export default function List({ list }) {
             listLongError.style.display = 'block'
         }
     }, [listTitle])
+
+    // DISPLAY LIST TITLE INPUT
+    function displayListInput(e) {
+        const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
+        e.target.style.display = 'none'
+        listTitleInput.style.display = 'block'
+        listTitleInput.select()
+    }
+
+    function handleDelete() {
+        dispatch(deleteList(list.id, list.board_id))
+    }
+
+    const handleEdit = (e) => {
+        // CHANGE ORDER BASED ON DRAG DROP
+        const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
+        if (listTitle.trim() === '' || listTitle.length === 255) {
+            listTitleInput.focus()
+            return
+        }
+
+        e.target.style.display = 'none'
+        document.getElementById(`list-title-${list.id}`).style.display = 'block'
+
+        if (list.title !== listTitle) {
+            dispatch(editList(list.id, list.order, listTitle))
+        }
+    }
+
+    // --------------------------------------------------------------------------------------
+
+    //-------------------------- CARD FUNCTIONS ----------------------------------------------
 
     // ADD CARD DISPLAY
     function displayInput(e) {
@@ -58,47 +91,8 @@ export default function List({ list }) {
         hideInput()
         setCardTitle('')
     }
+    // -----------------------------------------------------------------------------------------
 
-    // DISPLAY LIST TITLE INPUT
-    function displayListInput(e) {
-        const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
-        e.target.style.display = 'none'
-        listTitleInput.style.display = 'block'
-        listTitleInput.select()
-    }
-
-    // LIST FUNCTIONS
-    function handleDelete() {
-        dispatch(deleteList(list.id, list.board_id))
-    }
-
-    const handleEdit = (e) => {
-        // CHANGE ORDER BASED ON DRAG DROP
-        const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
-        if (listTitle.trim() === '' || listTitle.length === 255) {
-            listTitleInput.focus()
-            return
-        }
-
-        e.target.style.display = 'none'
-        document.getElementById(`list-title-${list.id}`).style.display = 'block'
-        if (list.title !== listTitle) {
-            dispatch(editList(list.id, list.order, listTitle))
-        }
-    }
-    // const handleEdit = (e) => {
-    //     // CHANGE ORDER BASED ON DRAG DROP
-    //     const listTitle = e.target.innerText
-    //     if (listTitle === '') {
-    //         e.target.innerText = list.title
-    //         return
-    //     }
-    //     if (list.title !== listTitle) {
-    //         dispatch(editList(list.id, list.order, listTitle))
-    //     }
-    //     return
-    // }
-    // console.log('TITLE', listTitle)
     return (
         <>
             <div id="list-title-container" className="flex-row">
@@ -123,7 +117,7 @@ export default function List({ list }) {
                         display: 'none'
                     }}
                 />
-                <div id='list-delete-btn' onClick={handleDelete}>ⓧ</div>
+                <div id='list-delete-btn' onClick={handleDelete}>✖</div>
             </div>
             <div id='list-empty-error' className="list-edit-error">title can not be empty</div>
             <div id='list-long-error' className="list-edit-error">title can not be longer than 255 characters</div>
