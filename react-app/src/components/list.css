@@ -39,6 +39,11 @@
     color: red;
 }
 
+#card-container {
+    max-height: 775px;
+    overflow: auto;
+}
+
 /* ADD CARD */
 .add-card-container {
     margin: 2px 0px 7px 0px;
