@@ -18,8 +18,8 @@ export default function List({ list }) {
     //ERROR HANDLING FOR LIST TITLE EDIT
     useEffect(() => {
         const listTitleInput = document.getElementById(`list-title-input-${list.id}`)
-        const listEmptyError = document.getElementById('list-empty-error')
-        const listLongError = document.getElementById('list-long-error')
+        const listEmptyError = document.getElementById(`list-empty-error-${list.id}`)
+        const listLongError = document.getElementById(`list-long-error-${list.id}`)
 
         listTitleInput.style.outlineColor = '#026AA7'
         listEmptyError.style.display = 'none'
@@ -55,7 +55,7 @@ export default function List({ list }) {
             setListTitle(list.title)
             e.target.style.display = 'none'
             document.getElementById(`list-title-${list.id}`).style.display = 'block'
-            document.getElementById('list-empty-error').style.display = 'none'
+            document.getElementById(`list-empty-error-${list.id}`).style.display = 'none'
             return
         }
 
@@ -128,8 +128,8 @@ export default function List({ list }) {
                 />
                 <div id='list-delete-btn' onClick={handleDelete}>✖</div>
             </div>
-            <div id='list-empty-error' className="list-edit-error">title can not be empty</div>
-            <div id='list-long-error' className="list-edit-error">title can not be longer than 255 characters</div>
+            <div id={`list-empty-error-${list.id}`} className="list-edit-error">title can not be empty</div>
+            <div id={`list-long-error-${list.id}`} className="list-edit-error">title can not be longer than 255 characters</div>
             <ul id="card-container">
                 {list.cards.map(card => (
                     <li key={card.id} className='card-li'>
