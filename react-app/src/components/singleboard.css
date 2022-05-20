@@ -6,12 +6,17 @@
     background-color: #026ba757;
 }
 
+#spacing {
+    padding: 0px 10px 0px 5px;
+}
+
 #board-title {
-    padding: 0px 10px 0px 30px;
+    padding: 0px 10px
 }
 
 #board-title:hover {
     cursor: pointer;
+    background-color: #026ba73a;
 }
 
 #board-separator {
