@@ -45,11 +45,12 @@ export default function Card({ card }) {
         // CHANGE ORDER BASED ON DRAG DROP
         // ADD IN EDIT FOR DESCRIPTION
         const cardTitleInput = document.getElementById(`card-title-input-${card.id}`)
+        const cardTitleEl = document.getElementById(`card-title-${card.id}`)
 
         if (cardTitle.trim() === '') {
             setCardTitle(card.title)
-            e.target.style.display = 'none'
-            document.getElementById(`card-title-${card.id}`).style.display = 'block'
+            cardTitleInput.style.display = 'none'
+            cardTitleEl.style.display = 'block'
             document.getElementById(`card-empty-error-${card.id}`).style.display = 'none'
             return
         }
@@ -59,8 +60,8 @@ export default function Card({ card }) {
             return
         }
 
-        e.target.style.display = 'none'
-        document.getElementById(`card-title-${card.id}`).style.display = 'block'
+        cardTitleInput.style.display = 'none'
+        cardTitleEl.style.display = 'block'
         if (card.title !== cardTitle) {
             dispatch(editCard(card.id, card.order, cardTitle, ''))
         }
@@ -84,6 +85,7 @@ export default function Card({ card }) {
                     onChange={e => setCardTitle(e.target.value)}
                     maxLength='255'
                     onBlur={handleEdit}
+                    onKeyDown={e => e.key === 'Enter' && handleEdit()}
                     style={{
                         resize: 'none',
                         display: 'none'
