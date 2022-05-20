@@ -1,5 +1,6 @@
 #board-dash {
     position: sticky;
+    padding-top: 4px;
     left: 0px;
     width: 100vw;
     align-items: center;
@@ -17,6 +18,15 @@
 #board-title:hover {
     cursor: pointer;
     background-color: #026ba73a;
+}
+
+#board-edit-input {
+    height: 30px;
+    width: 40px;
+    display: none;
+    margin: 3px 0px 5px 0px;
+    font-size: 32px;
+    padding: 0px 0px 0px 4px
 }
 
 #board-separator {
@@ -44,6 +54,13 @@
 
 #board-delete-btn:hover {
     color: red;
+}
+
+.board-title-errors {
+    font-size: 13px;
+    color: red;
+    margin-left: 30px;
+    display: none;
 }
 
 #list-ul {
