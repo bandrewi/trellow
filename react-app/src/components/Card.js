@@ -12,8 +12,8 @@ export default function Card({ card }) {
     //ERROR HANDLING FOR LIST TITLE EDIT
     useEffect(() => {
         const cardTitleInput = document.getElementById(`card-title-input-${card.id}`)
-        const cardEmptyError = document.getElementById('card-empty-error')
-        const cardLongError = document.getElementById('card-long-error')
+        const cardEmptyError = document.getElementById(`card-empty-error-${card.id}`)
+        const cardLongError = document.getElementById(`card-long-error-${card.id}`)
 
         cardTitleInput.style.outlineColor = '#026AA7'
         cardEmptyError.style.display = 'none'
@@ -50,7 +50,7 @@ export default function Card({ card }) {
             setCardTitle(card.title)
             e.target.style.display = 'none'
             document.getElementById(`card-title-${card.id}`).style.display = 'block'
-            document.getElementById('card-empty-error').style.display = 'none'
+            document.getElementById(`card-empty-error-${card.id}`).style.display = 'none'
             return
         }
 
@@ -91,8 +91,8 @@ export default function Card({ card }) {
                 />
                 <div id="card-delete-btn" onClick={handleDelete}>✖</div>
             </div>
-            <div id='card-empty-error' className="card-edit-errors">title can not be empty</div>
-            <div id='card-long-error' className="card-edit-errors">title can not be longer than 255 characters</div>
+            <div id={`card-empty-error-${card.id}`} className="card-edit-errors">title can not be empty</div>
+            <div id={`card-long-error-${card.id}`} className="card-edit-errors">title can not be longer than 255 characters</div>
         </>
     )
 }
