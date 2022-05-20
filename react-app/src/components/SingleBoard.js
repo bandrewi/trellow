@@ -14,9 +14,6 @@ export default function SingleBoard() {
     const { id } = useParams()
     const board = boards[id]
 
-    // const body = document.querySelector('body')
-    // body.style.backgroundColor = '#ffffff'
-
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
         if (board?.lists.length >= 6) {
@@ -35,6 +32,19 @@ export default function SingleBoard() {
     //     // if (listUl?.scrollWidth > listUl?.clientWidth) console.log('SCROLL')
     // })
 
+    useEffect(() => {
+        const addListInput = document.getElementById(`add-list-input`)
+        const listLongError = document.getElementById('add-list-long-error')
+
+        addListInput.style.outlineColor = '#026AA7'
+
+        listLongError.style.display = 'none'
+
+        if (listTitle.length === 255) {
+            addListInput.style.outlineColor = 'red'
+            listLongError.style.display = 'block'
+        }
+    }, [listTitle])
 
     if (!board) {
         return <Redirect to='/' />;
@@ -44,7 +54,7 @@ export default function SingleBoard() {
     function displayInput() {
         document.getElementById('add-list-text-container').style.display = 'none'
         document.getElementById('add-list-details').style.display = 'block'
-        document.getElementById('add-list-input').focus()
+        document.getElementById('add-list-input').select()
     }
 
     function hideInput() {
@@ -86,7 +96,7 @@ export default function SingleBoard() {
             <div id="board-dash" className="flex-row">
                 <h1
                     id='board-title'
-                    contentEditable='true'
+                    // contentEditable='true'
                     onBlur={handleEdit}
                 >
                     {board.title}
@@ -114,19 +124,22 @@ export default function SingleBoard() {
                                     id="add-list-input"
                                     type="text"
                                     placeholder="Enter list title..."
+                                    maxLength={255}
                                     value={listTitle}
                                     onChange={e => setListTitle(e.target.value)}
                                 >
                                 </input>
                             </div>
+                            <div id='add-list-long-error' className="list-edit-error">title can not be longer than 255 characters</div>
                             <div id="list-btn-container">
                                 <button
                                     id='add-list-btn'
                                     onMouseDown={addList}
-                                    disabled={!listTitle}
+                                    disabled={!listTitle || listTitle.length === 255}
                                 >
                                     Add List
                                 </button>
+
                             </div>
                         </div>
                     </li>
