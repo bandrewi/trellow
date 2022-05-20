@@ -13,6 +13,7 @@ export default function SingleBoard() {
     const boards = useSelector(state => state.boards)
     const { id } = useParams()
     const board = boards[id]
+    const [boardTitle, setBoardTitle] = useState(board.title)
 
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
@@ -33,18 +34,25 @@ export default function SingleBoard() {
     // })
 
     useEffect(() => {
-        const addListInput = document.getElementById(`add-list-input`)
-        const listLongError = document.getElementById('add-list-long-error')
+        const boardInput = document.getElementById(`board-edit-input`)
+        const boardLongError = document.getElementById('board-long-error')
+        const boardEmptyError = document.getElementById(`board-empty-error`)
 
-        addListInput.style.outlineColor = '#026AA7'
+        boardInput.style.outlineColor = '#026AA7'
 
-        listLongError.style.display = 'none'
+        boardLongError.style.display = 'none'
+        boardEmptyError.style.display = 'none'
 
-        if (listTitle.length === 255) {
-            addListInput.style.outlineColor = 'red'
-            listLongError.style.display = 'block'
+        if (boardTitle.trim() === '') {
+            boardInput.style.outlineColor = 'red'
+            boardEmptyError.style.display = 'block'
         }
-    }, [listTitle])
+
+        if (boardTitle.length === 255) {
+            boardInput.style.outlineColor = 'red'
+            boardLongError.style.display = 'block'
+        }
+    }, [boardTitle])
 
     if (!board) {
         return <Redirect to='/' />;
@@ -69,20 +77,35 @@ export default function SingleBoard() {
     }
 
     // BOARD FUNCTIONS
+
+    function displayBoardInput(e) {
+        e.target.style.display = 'none'
+        const boardTitleInput = document.getElementById('board-edit-input')
+        boardTitleInput.style.display = 'block'
+        boardTitleInput.select()
+    }
+
     const handleEdit = (e) => {
-        // const titleElement = document.getElementById('board-title')
-        // const title = titleElement.innerText
-        // dispatch(editBoard(id, title))
-        // CAN ADD AUTOSELECT TEXT LATER ON (ONLY WORKS ON INPUT FIELD)
-        const boardTitle = e.target.innerText
-        if (boardTitle === '') {
-            e.target.innerText = board.title
+        const boardTitleInput = document.getElementById('board-edit-input')
+
+        if (boardTitle.trim() === '') {
+            setBoardTitle(board.title)
+            e.target.style.display = 'none'
+            document.getElementById('board-title').style.display = 'block'
+            document.getElementById(`board-empty-error`).style.display = 'none'
             return
         }
-        if (board.title !== boardTitle) {
-            dispatch(editBoard(id, e.target.innerText))
+
+        if (boardTitle.length === 255) {
+            boardTitleInput.focus()
+            return
         }
-        return
+
+        e.target.style.display = 'none'
+        document.getElementById('board-title').style.display = 'block'
+        if (board.title !== boardTitle) {
+            dispatch(editBoard(id, boardTitle))
+        }
     }
 
     function handleDelete(e) {
@@ -94,16 +117,27 @@ export default function SingleBoard() {
     return (
         <>
             <div id="board-dash" className="flex-row">
+                <div id="spacing">&nbsp;</div>
                 <h1
                     id='board-title'
-                    // contentEditable='true'
+                    onClick={displayBoardInput}
+                >
+                    {boardTitle}
+                </h1>
+                <input
+                    id="board-edit-input"
+                    type="text"
+                    maxLength={255}
+                    value={boardTitle}
+                    onChange={e => setBoardTitle(e.target.value)}
                     onBlur={handleEdit}
                 >
-                    {board.title}
-                </h1>
+                </input>
                 <div id="board-separator" />
                 <button id='board-delete-btn' onClick={handleDelete}>Delete</button>
             </div>
+            <div id='board-empty-error' className="board-title-errors">title can not be empty</div>
+            <div id='board-long-error' className="board-title-errors">title can not be longer than 255 characters</div>
             <div id="list-container">
                 <ul id="list-ul" className="flex-row">
                     {board.lists.map(list => (
