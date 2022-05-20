@@ -11,7 +11,7 @@ export default function HomePage() {
             <div id='home-container'>
                 <div id='board-header'>
                     <div id='board-header-start'>
-                        <h3>Boards</h3>
+                        <h3>YOUR BOARDS</h3>
                     </div>
                 </div>
                 <div id='board-container'>

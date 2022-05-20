@@ -3,10 +3,11 @@
     left: 0px;
     width: 100vw;
     align-items: center;
+    background-color: #026ba757;
 }
 
 #board-title {
-    padding: 0px 10px;
+    padding: 0px 10px 0px 30px;
 }
 
 #board-title:hover {
@@ -33,11 +34,11 @@
     font-weight: 700;
     border: 0;
     border-radius: 0;
-    color: #D92736;
+    color: white;
 }
 
 #board-delete-btn:hover {
-    background: #F7F9FD;
+    color: red;
 }
 
 #list-ul {
