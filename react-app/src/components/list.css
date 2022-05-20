@@ -12,6 +12,8 @@
     flex-grow: 1;
     padding: 0px 5px 0px;
     outline-color: #026AA7;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 #list-delete-btn {
@@ -37,6 +39,7 @@
 .add-card-container:hover {
     cursor: pointer;
     background-color: #091e4214;
+    border-radius: 4px;
 }
 
 .add-card-text-container {
