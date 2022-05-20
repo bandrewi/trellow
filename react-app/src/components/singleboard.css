@@ -21,6 +21,23 @@
 
 #board-delete-btn {
     padding: 2px 4px;
+
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 12px;
+    line-height: 20px;
+    height: 30px;
+    max-height: 30px;
+    background: none;
+    font-weight: 700;
+    border: 0;
+    border-radius: 0;
+    color: #D92736;
+}
+
+#board-delete-btn:hover {
+    background: #F7F9FD;
 }
 
 #list-ul {
