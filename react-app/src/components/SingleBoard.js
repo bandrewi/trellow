@@ -87,12 +87,11 @@ export default function SingleBoard() {
     const handleEdit = (e) => {
         console.log("EDIT")
         const boardTitleInput = document.getElementById('board-edit-input')
-        const boardInput = document.getElementById('board-edit-input')
         const boardTitleEl = document.getElementById('board-title')
         if (boardTitle.trim() === '') {
             setBoardTitle(board.title)
             // e.target.style.display = 'none'
-            boardInput.style.display = 'none'
+            boardTitleInput.style.display = 'none'
             boardTitleEl.style.display = 'block'
             document.getElementById(`board-empty-error`).style.display = 'none'
             return
@@ -103,7 +102,7 @@ export default function SingleBoard() {
             return
         }
 
-        boardInput.style.display = 'none'
+        boardTitleInput.style.display = 'none'
         boardTitleEl.style.display = 'block'
         if (board.title !== boardTitle) {
             dispatch(editBoard(id, boardTitle))
