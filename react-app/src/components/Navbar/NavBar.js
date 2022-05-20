@@ -12,7 +12,7 @@ const NavBar = () => {
   function changeNav() {
     if (window.scrollY > 70) {
       const navBar = document.getElementById('nonuser-navbar')
-      navBar.classList.add('scrolled')
+      navBar?.classList.add('scrolled')
       document.removeEventListener('scroll', changeNav)
       document.addEventListener('scroll', changeNavBack)
     }
@@ -23,7 +23,7 @@ const NavBar = () => {
   function changeNavBack() {
     if (window.scrollY < 70) {
       const navBar = document.getElementById('nonuser-navbar')
-      navBar.classList.remove('scrolled')
+      navBar?.classList.remove('scrolled')
       document.removeEventListener('scroll', changeNavBack)
       document.addEventListener('scroll', changeNav)
     }
