@@ -30,13 +30,6 @@
     cursor: pointer;
 }
 
-#list-title-input {
-    box-sizing: border-box;
-    margin: 5px 2px 5px 0px;
-    border-radius: 4px;
-    height: 22px;
-}
-
 #list-delete-btn {
     font-size: 20px;
 }
