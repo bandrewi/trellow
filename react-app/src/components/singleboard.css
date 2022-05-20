@@ -1,6 +1,7 @@
 #board-dash {
     position: sticky;
-    padding-top: 4px;
+    padding-top: 3px;
+    padding-bottom: 4px;
     left: 0px;
     width: 100vw;
     align-items: center;
@@ -22,11 +23,10 @@
 
 #board-edit-input {
     height: 30px;
-    width: 40px;
     display: none;
     margin: 3px 0px 5px 0px;
     font-size: 32px;
-    padding: 0px 0px 0px 4px
+    padding: 0px 0px 0px 4px;
 }
 
 #board-separator {

@@ -77,7 +77,6 @@ export default function SingleBoard() {
     }
 
     // BOARD FUNCTIONS
-
     function displayBoardInput(e) {
         e.target.style.display = 'none'
         const boardTitleInput = document.getElementById('board-edit-input')
