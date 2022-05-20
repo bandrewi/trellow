@@ -84,7 +84,6 @@ export const editCard = (id, order, title, description) => async (dispatch) => {
 
 export const deleteCard = (card) => async (dispatch) => {
     const { id } = card
-    console.log('ID', id)
     await fetch(`/api/cards/${id}`, {
         method: "DELETE"
     })
