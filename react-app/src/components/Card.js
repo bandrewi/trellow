@@ -45,7 +45,16 @@ export default function Card({ card }) {
         // CHANGE ORDER BASED ON DRAG DROP
         // ADD IN EDIT FOR DESCRIPTION
         const cardTitleInput = document.getElementById(`card-title-input-${card.id}`)
-        if (cardTitle.trim() === '' || cardTitle.length === 255) {
+
+        if (cardTitle.trim() === '') {
+            setCardTitle(card.title)
+            e.target.style.display = 'none'
+            document.getElementById(`card-title-${card.id}`).style.display = 'block'
+            document.getElementById('card-empty-error').style.display = 'none'
+            return
+        }
+
+        if (cardTitle.length === 255) {
             cardTitleInput.focus()
             return
         }
