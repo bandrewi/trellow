@@ -13,7 +13,8 @@ export default function SingleBoard() {
     const boards = useSelector(state => state.boards)
     const { id } = useParams()
     const board = boards[id]
-    const [boardTitle, setBoardTitle] = useState(board.title)
+    const [boardTitle, setBoardTitle] = useState(board?.title)
+
 
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
@@ -34,23 +35,25 @@ export default function SingleBoard() {
     // })
 
     useEffect(() => {
-        const boardInput = document.getElementById(`board-edit-input`)
-        const boardLongError = document.getElementById('board-long-error')
-        const boardEmptyError = document.getElementById(`board-empty-error`)
+        if (board) {
+            const boardInput = document.getElementById(`board-edit-input`)
+            const boardLongError = document.getElementById('board-long-error')
+            const boardEmptyError = document.getElementById(`board-empty-error`)
 
-        boardInput.style.outlineColor = '#026AA7'
+            boardInput.style.outlineColor = '#026AA7'
 
-        boardLongError.style.display = 'none'
-        boardEmptyError.style.display = 'none'
+            boardLongError.style.display = 'none'
+            boardEmptyError.style.display = 'none'
 
-        if (boardTitle.trim() === '') {
-            boardInput.style.outlineColor = 'red'
-            boardEmptyError.style.display = 'block'
-        }
+            if (boardTitle.trim() === '') {
+                boardInput.style.outlineColor = 'red'
+                boardEmptyError.style.display = 'block'
+            }
 
-        if (boardTitle.length === 255) {
-            boardInput.style.outlineColor = 'red'
-            boardLongError.style.display = 'block'
+            if (boardTitle.length === 255) {
+                boardInput.style.outlineColor = 'red'
+                boardLongError.style.display = 'block'
+            }
         }
     }, [boardTitle])
 
@@ -117,6 +120,7 @@ export default function SingleBoard() {
 
     return (
         <>
+            {/* <div id="board-background">&nbsp;</div> */}
             <div id="board-dash" className="flex-row">
                 <div id="spacing">&nbsp;</div>
                 <h1
