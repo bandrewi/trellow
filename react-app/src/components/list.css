@@ -5,13 +5,36 @@
     justify-content: space-between;
 }
 
+.list-edit-error {
+    margin: 0px 10px 5px;
+    padding: 0px 5px 0px;
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+
 .list-title {
-    font-size: 17px;
+    font-size: 15px;
     color: #172b4d;
     margin: 5px 0px 5px 3px;
     flex-grow: 1;
     padding: 0px 5px 0px;
     outline-color: #026AA7;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.list-title:hover {
+    background-color: #091e4214;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#list-title-input {
+    box-sizing: border-box;
+    margin: 5px 2px 5px 0px;
+    border-radius: 4px;
+    height: 22px;
 }
 
 #list-delete-btn {
@@ -37,6 +60,7 @@
 .add-card-container:hover {
     cursor: pointer;
     background-color: #091e4214;
+    border-radius: 4px;
 }
 
 .add-card-text-container {

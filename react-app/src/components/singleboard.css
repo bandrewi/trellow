@@ -1,16 +1,32 @@
 #board-dash {
     position: sticky;
+    padding-top: 3px;
+    padding-bottom: 4px;
     left: 0px;
     width: 100vw;
     align-items: center;
+    background-color: #026ba757;
+}
+
+#spacing {
+    padding: 0px 10px 0px 5px;
 }
 
 #board-title {
-    padding: 0px 10px;
+    padding: 0px 10px
 }
 
 #board-title:hover {
     cursor: pointer;
+    background-color: #026ba73a;
+}
+
+#board-edit-input {
+    height: 30px;
+    display: none;
+    margin: 3px 0px 5px 0px;
+    font-size: 32px;
+    padding: 0px 0px 0px 4px;
 }
 
 #board-separator {
@@ -21,6 +37,30 @@
 
 #board-delete-btn {
     padding: 2px 4px;
+
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 12px;
+    line-height: 20px;
+    height: 30px;
+    max-height: 30px;
+    background: none;
+    font-weight: 700;
+    border: 0;
+    border-radius: 0;
+    color: white;
+}
+
+#board-delete-btn:hover {
+    color: red;
+}
+
+.board-title-errors {
+    font-size: 13px;
+    color: red;
+    margin-left: 30px;
+    display: none;
 }
 
 #list-ul {
