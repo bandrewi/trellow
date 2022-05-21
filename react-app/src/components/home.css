@@ -51,3 +51,13 @@
 #clickable-div {
     height: 96px;
 }
+
+/* ADD BOARD */
+#add-board-container {
+    justify-content: center;
+    cursor: pointer;
+}
+
+#add-board {
+    color: white;
+}
