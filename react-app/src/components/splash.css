@@ -46,6 +46,13 @@
     color: #495057;
     font-size: 20px;
     border-radius: 6px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+#splash-email:focus {
+    outline: transparent;
+    border-color: #80b2ff;
+    box-shadow: 0 0 0 0.2rem rgb(0 101 255 / 25%);
 }
 
 #sign-up-free {
