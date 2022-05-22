@@ -26,30 +26,58 @@ export default function Create() {
     //     return () => document.removeEventListener("click", closeMenu);
     // }, [showMenu]);
 
+    function showCreate() {
+        const createForm = document.getElementById('nav-create-form-container')
+        const createFormInput = document.getElementById('nav-create-input')
+        createForm.style.display = 'block'
+        createFormInput.focus()
+
+    }
+
+    function hideCreate() {
+        const createForm = document.getElementById('nav-create-form-container')
+        createForm.style.display = 'none'
+    }
 
     const handleCreate = async (e) => {
         e.preventDefault()
         const board = await dispatch(createBoard(title))
         setTitle('')
+        hideCreate()
         history.push(`/boards/${board.id}`)
     }
 
     return (
         <>
-            <div id="nav-create-container">
+            <div id="nav-create-container" onClick={showCreate}>
                 <div id="nav-create">Create</div>
             </div>
-            <form onSubmit={handleCreate} style={{ display: 'none' }}>
-                <label className="required"> Board title
-                </label>
-                <input
-                    type="text"
-                    value={title}
-                    onChange={e => setTitle(e.target.value)}
-                >
-                </input>
-                <button id="create-btn" disabled={!title}>Create</button>
-            </form>
+            <div
+                id="nav-create-form-container"
+                className="flex-column"
+                onBlur={hideCreate}
+                style={{ display: 'none' }}
+            >
+                <form id='nav-create-form' className='flex-column'>
+                    <div id="nav-create-label">Create</div>
+                    <label id='nav-create-title' className="required"> Board title
+                    </label>
+                    <input
+                        id='nav-create-input'
+                        type="text"
+                        value={title}
+                        onChange={e => setTitle(e.target.value)}
+                    >
+                    </input>
+                    {!title && <div id='create-required'>Board title is required</div>}
+                    <button
+                        id="create-btn"
+                        disabled={!title}
+                        onMouseDown={handleCreate}
+                    >
+                        Create</button>
+                </form>
+            </div>
             {/* CODE TO IMPLEMENT WHEN WORKPLACE OR TEMPLATES HAVE BEEN MADE */}
             {/* {!showMenu && (
                 <p onClick={openMenu}>Create</p>
