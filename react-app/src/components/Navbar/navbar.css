@@ -12,7 +12,7 @@
 #user-left {
     justify-content: space-around;
     align-items: center;
-    width: 500px;
+    width: 350px;
 }
 
 #user-logo {
@@ -22,11 +22,24 @@
     height: 20px;
 }
 
+
+#nav-create {
+    color: white;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+#nav-create:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
 #nav-board {
     text-decoration: none;
     color: white;
-    padding: 5px;
-    margin-top: 5px;
+    padding: 4px 8px;
+    border-radius: 3px;
 }
 
 #nav-board:hover {
