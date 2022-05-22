@@ -46,6 +46,13 @@
     color: #495057;
     font-size: 20px;
     border-radius: 6px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+#splash-email:focus {
+    outline: transparent;
+    border-color: #80b2ff;
+    box-shadow: 0 0 0 0.2rem rgb(0 101 255 / 25%);
 }
 
 #sign-up-free {
@@ -109,4 +116,23 @@
     text-align: center;
     margin-right: 130px;
     /* margin-left: 255px; */
+}
+
+/* FOOTER */
+footer {
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+}
+
+#logo-container {
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#linkedIn-logo {
+    height: 30px;
 }

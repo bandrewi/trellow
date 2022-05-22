@@ -40,6 +40,11 @@ const NavBar = () => {
                 <img id='user-logo' src='https://i.imgur.com/O0SRwmY.png' alt='Trellow' />
               </NavLink>
             </li>
+            <li id='nav-board-container'>
+              <NavLink id='nav-board' to='/'>
+                Boards
+              </NavLink>
+            </li>
             <li>
               <Create />
             </li>

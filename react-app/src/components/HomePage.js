@@ -12,6 +12,9 @@ export default function HomePage() {
                 <div id='board-header'>
                     <div id='board-header-start'>
                         <h3>YOUR BOARDS</h3>
+                        {boards.length === 0 && (
+                            <p>You haven't created any boards yet.</p>
+                        )}
                     </div>
                 </div>
                 <div id='board-container'>
@@ -21,6 +24,13 @@ export default function HomePage() {
                                 <Board board={board} />
                             </li>
                         ))}
+                        <li id='add-board-container' className='board-li flex-column' >
+                            {/* <div id='add-board-container' className='flex-column'> */}
+                            <div id='add-board'>
+                                Create new board
+                            </div>
+                            {/* </div> */}
+                        </li>
                     </ul>
                 </div>
             </div>

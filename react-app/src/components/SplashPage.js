@@ -64,6 +64,21 @@ export default function SplashPage() {
                     </div>
                 </div>
             </section>
+            <footer className='flex-row'>
+                <div id='logo-container' className='flex-row'>
+                    <span>Connect with the developer :</span>
+                    <div>
+                        <a href="https://github.com/bandrewi">
+                            <img src="GitHub.png" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/andrew-bui-26b718237/">
+                            <img id='linkedIn-logo' src="LinkedIn.png" />
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </>
     )
 }

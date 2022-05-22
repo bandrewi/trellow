@@ -19,13 +19,18 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
-def name_letters_only(form, field):
+def first_name_letters_only(form, field):
     name = field.data
     if (not name.isalpha()):
-        raise ValidationError('Name can only contain letters.')
+        raise ValidationError('First name can only contain letters.')
+
+def last_name_letters_only(form, field):
+    name = field.data
+    if (not name.isalpha()):
+        raise ValidationError('Last name can only contain letters.')
 
 class SignUpForm(FlaskForm):
-    first_name = StringField('firstname', validators=[DataRequired(), name_letters_only])
-    last_name = StringField('lastname', validators=[DataRequired(), name_letters_only])
+    first_name = StringField('firstname', validators=[DataRequired(), first_name_letters_only])
+    last_name = StringField('lastname', validators=[DataRequired(), last_name_letters_only])
     email = StringField('email', validators=[DataRequired(), Email('Please provide a valid email.'), user_exists])
     password = StringField('password', validators=[DataRequired()])
