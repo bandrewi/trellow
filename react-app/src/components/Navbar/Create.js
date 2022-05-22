@@ -36,7 +36,10 @@ export default function Create() {
 
     return (
         <>
-            <form onSubmit={handleCreate}>
+            <div id="nav-create-container">
+                <div id="nav-create">Create</div>
+            </div>
+            <form onSubmit={handleCreate} style={{ display: 'none' }}>
                 <label className="required"> Board title
                 </label>
                 <input
