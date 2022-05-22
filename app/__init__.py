@@ -76,4 +76,8 @@ def inject_csrf_token(response):
 def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
+    if path == 'GitHub.png':
+        return app.send_static_file('GitHub.png')
+    if path == 'LinkedIn.png':
+        return app.send_static_file('LinkedIn.png')
     return app.send_static_file('index.html')
