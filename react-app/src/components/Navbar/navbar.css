@@ -23,6 +23,18 @@
 }
 
 
+
+#nav-board {
+    text-decoration: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+#nav-board:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 #nav-create {
     color: white;
     padding: 4px 8px;
@@ -35,15 +47,70 @@
     cursor: pointer;
 }
 
-#nav-board {
-    text-decoration: none;
-    color: white;
-    padding: 4px 8px;
+#nav-create-form-container {
+    width: 300px;
+    height: 160px;
+    position: fixed;
+    /* top: 50px; */
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(9, 30, 66, 0.493);
     border-radius: 3px;
+    z-index: 1;
 }
 
-#nav-board:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+#nav-create-form {
+    margin: 5px;
+    /* position: fixed;
+    top: 45px;
+    background-color: white;
+    border: 1px solid black; */
+}
+
+#nav-create-label {
+    text-align: center;
+    margin: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(9, 30, 66, 0.493);
+}
+
+#nav-create-title {
+    margin-top: 10px;
+    font-weight: 700;
+    color: #5e6c84;
+    font-size: 13px;
+}
+
+#nav-create-input {
+    margin-bottom: 8px 0px 1px;
+    padding: 4px 8px;
+    outline-color: #026AA7;
+    border: 1px solid #afb3b8;
+}
+
+#create-required {
+    color: red;
+    font-size: 13px;
+}
+
+#create-btn {
+    color: white;
+    background-color: #026AA7;
+    border: transparent;
+    padding: 4px 8px;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+
+#create-btn:hover {
+    cursor: pointer;
+
+}
+
+#create-btn:disabled {
+    color: #00000069;
+    font-weight: 400;
+    background-color: #cecece;
 }
 
 /* NONUSER */
