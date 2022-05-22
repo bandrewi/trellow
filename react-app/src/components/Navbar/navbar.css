@@ -22,17 +22,11 @@
     height: 20px;
 }
 
-/* #nav-board-container {
-    height: 32px;
-} */
-
 #nav-board {
     text-decoration: none;
     color: white;
     padding: 5px;
     margin-top: 5px;
-    /* border: none;
-    background-color: transparent; */
 }
 
 #nav-board:hover {
