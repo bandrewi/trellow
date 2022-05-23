@@ -157,13 +157,14 @@ export default function List({ list }) {
                             placeholder="Enter a title for this card..."
                             value={cardTitle}
                             onChange={e => setCardTitle(e.target.value)}
+                            maxLength='255'
                         >
                         </input>
                         <div>
                             <button
                                 id='add-card-btn'
                                 onMouseDown={addCard}
-                                disabled={!cardTitle}
+                                disabled={!cardTitle || cardTitle.length >= 255}
                             >
                                 Add Card
                             </button>
