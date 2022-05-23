@@ -13,7 +13,10 @@ export default function HomePage() {
                     <div id='board-header-start'>
                         <h3>YOUR BOARDS</h3>
                         {boards.length === 0 && (
-                            <p>You haven't created any boards yet.</p>
+                            <>
+                                <p>You haven't created any boards yet. </p>
+                                <p>To create a board, click on the Create button and enter a title.</p>
+                            </>
                         )}
                     </div>
                 </div>
