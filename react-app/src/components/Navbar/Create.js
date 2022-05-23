@@ -58,7 +58,8 @@ export default function Create() {
                 onBlur={hideCreate}
                 style={{ display: 'none' }}
             >
-                <form id='nav-create-form' className='flex-column'>
+                {/* FORM ALLOWS PRESSING ENTER TO SUBMIT */}
+                <form id='nav-create-form' className='flex-column' onSubmit={handleCreate}>
                     <div id="nav-create-label">Create</div>
                     <label id='nav-create-title' className="required"> Board title
                     </label>
