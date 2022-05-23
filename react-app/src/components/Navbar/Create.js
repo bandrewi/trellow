@@ -44,7 +44,7 @@ export default function Create() {
         const board = await dispatch(createBoard(title))
         setTitle('')
         hideCreate()
-        history.push(`/boards/${board.id}`)
+        if (board) history.push(`/boards/${board.id}`)
     }
 
     return (
