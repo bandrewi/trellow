@@ -43,3 +43,9 @@
     color: red;
     display: none;
 }
+
+.card-add-errors {
+    margin: 0px 0px 5px;
+    font-size: 12px;
+    color: red;
+}
