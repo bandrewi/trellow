@@ -24,13 +24,11 @@ export default function HomePage() {
                                 <Board board={board} />
                             </li>
                         ))}
-                        <li id='add-board-container' className='board-li flex-column' >
-                            {/* <div id='add-board-container' className='flex-column'> */}
+                        {/* <li id='add-board-container' className='board-li flex-column' >
                             <div id='add-board'>
                                 Create new board
                             </div>
-                            {/* </div> */}
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
