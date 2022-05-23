@@ -68,12 +68,16 @@ export default function Create() {
                         type="text"
                         value={title}
                         onChange={e => setTitle(e.target.value)}
+                        maxLength='255'
                     >
                     </input>
                     {!title && <div id='create-required'>Board title is required</div>}
+                    {title.length === 255 &&
+                        <div id='create-required'>Board title can not be longer than 255 characters</div>
+                    }
                     <button
                         id="create-btn"
-                        disabled={!title}
+                        disabled={!title || title.trim() === '' || title.length >= 255}
                         onMouseDown={handleCreate}
                     >
                         Create</button>
