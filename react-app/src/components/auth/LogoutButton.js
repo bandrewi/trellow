@@ -8,6 +8,9 @@ const LogoutButton = () => {
   const history = useHistory()
   const onLogout = async (e) => {
     await dispatch(logout());
+    // history.push('/')
+    // trying to logout when on a single board page messes up the login page css
+    // for some reason works on heroku
     history.push('/login')
   };
 
