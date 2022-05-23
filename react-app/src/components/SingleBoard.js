@@ -55,7 +55,7 @@ export default function SingleBoard() {
                 boardLongError.style.display = 'block'
             }
         }
-    }, [boardTitle])
+    }, [boardTitle, board])
 
     if (!board) {
         return <Redirect to='/' />;

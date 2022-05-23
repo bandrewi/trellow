@@ -26,7 +26,7 @@ const SignUpForm = () => {
       document.cookie = 'email='
     }
     setRedirected(false)
-  })
+  }, [cookieEmail, redirected])
   // --------------------------------------------
 
   const onSignUp = async (e) => {

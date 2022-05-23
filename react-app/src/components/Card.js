@@ -27,7 +27,7 @@ export default function Card({ card }) {
             cardTitleInput.style.outlineColor = 'red'
             cardLongError.style.display = 'block'
         }
-    }, [cardTitle])
+    }, [cardTitle, card.id])
 
     // DISPLAY CARD TITLE INPUT
     function displayCardInput(e) {
