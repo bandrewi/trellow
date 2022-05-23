@@ -33,7 +33,7 @@ export default function List({ list }) {
             listTitleInput.style.outlineColor = 'red'
             listLongError.style.display = 'block'
         }
-    }, [listTitle])
+    }, [listTitle, list.id])
 
     // DISPLAY LIST TITLE INPUT
     function displayListInput(e) {
