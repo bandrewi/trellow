@@ -1,3 +1,5 @@
+import { CLEAR_STORE } from "./clear"
+
 const LOAD_LISTS = 'lists/LOAD_LISTS'
 export const ADD_LIST = 'lists/ADD_LIST'
 export const UPDATE_LIST = 'lists/UPDATE_LIST'
@@ -87,6 +89,8 @@ export const deleteList = (id, boardId) => async (dispatch) => {
     })
     dispatch(removeList(id, boardId))
 }
+
+const initialState = {}
 export default function lists(state = {}, action) {
     let newState;
     switch (action.type) {
@@ -106,6 +110,8 @@ export default function lists(state = {}, action) {
             newState = { ...state }
             delete newState[action.id]
             return newState
+        case CLEAR_STORE:
+            return initialState
         default:
             return state;
     }
