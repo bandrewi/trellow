@@ -15,7 +15,7 @@ export default function SingleBoard() {
     const board = boards[id]
     const [boardTitle, setBoardTitle] = useState(board?.title)
 
-
+    console.log('BOARD', board)
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
         if (board?.lists.length >= 6) {
@@ -127,7 +127,7 @@ export default function SingleBoard() {
                     id='board-title'
                     onClick={displayBoardInput}
                 >
-                    {boardTitle}
+                    {boardTitle.length > 100 ? boardTitle.substring(0, 100) + '...' : boardTitle}
                 </h1>
                 <input
                     id="board-edit-input"
@@ -171,11 +171,17 @@ export default function SingleBoard() {
                                 </input>
                             </div>
                             <div id='add-list-long-error' className="list-edit-error">title can not be longer than 255 characters</div>
+                            {listTitle.length >= 255 && (
+                                <div className="list-add-errors">Title can not be longer than 255 characters</div>
+                            )}
+                            {listTitle.trim() === '' && (
+                                <div className="list-add-errors">Title required</div>
+                            )}
                             <div id="list-btn-container">
                                 <button
                                     id='add-list-btn'
                                     onMouseDown={addList}
-                                    disabled={!listTitle || listTitle.length === 255}
+                                    disabled={!listTitle || listTitle.length === 255 || listTitle.trim() === ''}
                                 >
                                     Add List
                                 </button>

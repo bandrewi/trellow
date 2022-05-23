@@ -157,13 +157,20 @@ export default function List({ list }) {
                             placeholder="Enter a title for this card..."
                             value={cardTitle}
                             onChange={e => setCardTitle(e.target.value)}
+                            maxLength='255'
                         >
                         </input>
+                        {cardTitle.length >= 255 && (
+                            <div className="card-add-errors">Title can not be longer than 255 characters</div>
+                        )}
+                        {cardTitle.trim() === '' && (
+                            <div className="card-add-errors">Title required</div>
+                        )}
                         <div>
                             <button
                                 id='add-card-btn'
                                 onMouseDown={addCard}
-                                disabled={!cardTitle}
+                                disabled={!cardTitle || cardTitle.length >= 255 || cardTitle.trim() === ''}
                             >
                                 Add Card
                             </button>
