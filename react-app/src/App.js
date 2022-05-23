@@ -55,9 +55,13 @@ function App() {
       <>
         <NavBar />
         <Switch>
-          <ProtectedRoute path='/boards/:id' exact={true} >
-            <SingleBoard />
-          </ProtectedRoute>
+          <ProtectedRoute path='/boards/:id' exact={true}
+            render={(props) => (
+              <SingleBoard key={props.match.params.id} />
+            )}
+          />
+          {/* <SingleBoard />
+          </ProtectedRoute> */}
           <Route path='/' exact={true} >
             {user ? <HomePage /> : <SplashPage />}
           </Route>
