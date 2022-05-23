@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './splash.css'
 
 export default function SplashPage() {
@@ -69,12 +69,12 @@ export default function SplashPage() {
                     <span>Connect with the developer :</span>
                     <div>
                         <a href="https://github.com/bandrewi">
-                            <img src="GitHub.png" />
+                            <img src="GitHub.png" alt='' />
                         </a>
                     </div>
                     <div>
                         <a href="https://www.linkedin.com/in/andrew-bui-26b718237/">
-                            <img id='linkedIn-logo' src="LinkedIn.png" />
+                            <img id='linkedIn-logo' src="LinkedIn.png" alt='' />
                         </a>
                     </div>
                 </div>
