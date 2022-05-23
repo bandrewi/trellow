@@ -15,7 +15,7 @@ export default function SingleBoard() {
     const board = boards[id]
     const [boardTitle, setBoardTitle] = useState(board?.title)
 
-
+    console.log('BOARD', board)
     // MAKES THE ROOT FIT CONTENT SO THAT THE NAVBAR & BOARD DASH CAN BE STICKY
     useEffect(() => {
         if (board?.lists.length >= 6) {
@@ -127,7 +127,7 @@ export default function SingleBoard() {
                     id='board-title'
                     onClick={displayBoardInput}
                 >
-                    {boardTitle}
+                    {boardTitle.length > 100 ? boardTitle.substring(0, 100) + '...' : boardTitle}
                 </h1>
                 <input
                     id="board-edit-input"
