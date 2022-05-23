@@ -1,3 +1,5 @@
+import { CLEAR_STORE } from "./clear"
+
 const LOAD_CARDS = 'cards/LOAD_CARDS'
 export const ADD_CARD = 'cards/ADD_CARD'
 export const UPDATE_CARD = 'cards/UPDATE_CARD'
@@ -89,6 +91,8 @@ export const deleteCard = (card) => async (dispatch) => {
     })
     dispatch(removeCard(card))
 }
+
+const initialState = {}
 export default function cards(state = {}, action) {
     let newState;
     switch (action.type) {
@@ -108,6 +112,8 @@ export default function cards(state = {}, action) {
             newState = { ...state }
             delete newState[action.card.id]
             return newState
+        case CLEAR_STORE:
+            return initialState
         default:
             return state;
     }

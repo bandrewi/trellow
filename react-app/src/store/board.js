@@ -1,5 +1,6 @@
 import { ADD_LIST, UPDATE_LIST, REMOVE_LIST } from './list'
 import { ADD_CARD, UPDATE_CARD, REMOVE_CARD } from './card'
+import { CLEAR_STORE } from './clear'
 
 const LOAD_BOARDS = 'boards/LOAD_BOARDS'
 const ADD_BOARD = 'boards/ADD_BOARD'
@@ -83,6 +84,7 @@ export const deleteBoard = (id) => async (dispatch) => {
     })
     dispatch(removeBoard(id))
 }
+const initialState = {}
 export default function boards(state = {}, action) {
     let newState;
     switch (action.type) {
@@ -154,6 +156,8 @@ export default function boards(state = {}, action) {
             newState[action.card.board_id].lists[listIndex].cards =
                 newState[action.card.board_id].lists[listIndex].cards.filter(card => card.id !== +action.card.id)
             return newState
+        case CLEAR_STORE:
+            return initialState
         default:
             return state;
     }
