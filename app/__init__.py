@@ -80,4 +80,6 @@ def react_root(path):
         return app.send_static_file('GitHub.png')
     if path == 'LinkedIn.png':
         return app.send_static_file('LinkedIn.png')
+    if path == 'project_pic.png':
+        return app.send_static_file('project_pic.png')
     return app.send_static_file('index.html')
