@@ -136,3 +136,21 @@ footer {
 #linkedIn-logo {
     height: 30px;
 }
+
+#technologies>img {
+    margin-right: 20px;
+    height: 40px;
+}
+
+#last-tech {
+    border-right: 1px solid black;
+    padding-right: 20px;
+}
+
+#about {
+    align-items: center;
+}
+
+.about-img {
+    margin-right: 25px;
+}
