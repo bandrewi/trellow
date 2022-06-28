@@ -70,11 +70,11 @@ export default function SplashPage() {
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="" />
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="" />
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="" />
-                    <img src="https://i.imgur.com/MoFw3WD.png" alt="" />
+                    <img src="https://camo.githubusercontent.com/023e590d931996855a7a4f8e82c3dd3a8440a0dc7db8d60eff805b8a43703584/68747470733a2f2f7365656b6c6f676f2e636f6d2f696d616765732f462f666c61736b2d6c6f676f2d343443353037414242372d7365656b6c6f676f2e636f6d2e706e67" alt="" />
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="" />
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="" />
-                    <img src="https://i.imgur.com/E8GbqHf.png" alt="" />
-                    <img src="https://i.imgur.com/v4MGQKD.png" alt="" />
+                    <img src="https://avatars.githubusercontent.com/u/1066203?s=280&v=4" alt="" />
+                    {/* <img src="https://i.imgur.com/v4MGQKD.png" alt="" /> */}
                     <img id='last-tech' src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="" />
                     {/* <img src="" /> */}
                 </div>
